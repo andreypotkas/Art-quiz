@@ -1,16 +1,1 @@
-console.log('1');
-console.log('1');
-console.log('1');
-console.log('1');
-console.log('1');
-console.log('1');
-console.log('1');
-console.log('1');
-console.log('1');
-console.log('1');
-console.log('1');
-console.log('1');
-console.log('1');
-console.log('1');
-console.log('1');
-console.log('1');
+import './css/style.css';

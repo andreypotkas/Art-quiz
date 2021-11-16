@@ -1,0 +1,171 @@
+body{
+    background: #000;
+}
+footer{
+    display: flex;
+    justify-content: space-around;
+    color: white;
+    .link-github{
+        background-image: url('../assets/img/icons/648256.png');
+        background-size: contain;
+        width: 50px;
+        height: 50px;
+    }
+    .year{
+        font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+        font-size: 22px;
+    }
+    .link-school{
+        background-image: url('../assets/img/icons/logo_rs_text.svg');
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 100px;
+        height: 50px;
+    }
+}
+.application-container{
+    background: #000;
+    background-image: url('../assets/img/1581998253_dark-minimalist_vsthemes_ru-27.jpg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 30%;
+    min-width: 320px;
+    height:90vh;
+    margin: 0 auto;
+    .btn-settings{
+        background:none;
+        background-image: url('../assets/img/icons/260867.png');
+        background-size: cover;
+        width: 50px;
+        height: 50px;
+    }
+    .content-container{
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        margin-top: 320px;
+    h1{
+        text-align: center;
+        flex: 0 1 100%;
+        color: white;
+        text-transform: uppercase;
+        font-family: arial;
+        height: 10%;
+        font-size: 54px;
+    }  
+    .artists-quiz{
+        flex: 0 1 50%;
+        background-image: url('../assets/img/dali-photo.jpg');
+        background-size: cover;
+        max-width: 120px;
+        height: 120px;
+        border-radius: 50px;
+        border: solid 2px white;
+        button{
+            background: none;
+            color: white;
+            border: white solid 2px;
+            border-radius: 5px;
+            width: 120px;
+            height: 40px;
+            position: relative;
+            top: 130px;
+            text-transform: uppercase;
+        }
+    }
+    .pictures-quiz{
+        flex: 0 1 50%;
+        background-image: url('../assets/img/dalitime.jpg');
+        background-size: cover;
+        max-width: 120px;
+        height: 120px;
+        border-radius: 50px;
+        border: solid 2px white;
+        button{
+            background: none;
+            color: white;
+            border: white solid 2px;
+            border-radius: 5px;
+            width: 120px;
+            height: 40px;
+            position: relative;
+            top: 130px;
+            text-transform: uppercase;
+        }
+    }
+    }
+}
+
+.settings-container{
+        display: flex;
+        flex-direction: column;
+        margin-top: 320px;
+        background: #000;
+    .settings-title{
+        text-align: center;
+        color: white;
+        text-transform: uppercase;
+        font-family: arial;
+        height: 10%;
+        font-size: 54px;
+    }  
+    .settings-time{
+        width: 80%;
+        margin: 0 auto;
+        height: 130px;
+        border-radius: 50px;
+        border: solid 2px white;
+        .time-title{
+            text-align: center;
+            color: white;
+            text-transform: uppercase;
+        }
+    }
+    .settings-volume{
+        width: 80%;
+        margin: 0 auto;
+        margin-bottom: 10px;
+        height: 130px;
+        border-radius: 50px;
+        border: solid 2px white;
+        .volume-title{
+            text-align: center;
+            color: white;
+            text-transform: uppercase;
+        }
+    }
+}
+
+
+
+.volume-container {
+    display: flex;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+    width: 100px;
+    height: 50px;
+    align-items: center;
+  }
+  .volume-button {
+    height: 20px;
+    width: 20px;
+    align-items: center;
+  }
+  .volume-button {
+    align-items: center;
+    transform: scale(0.7);
+}
+.volume-slider {
+    margin-top: 8px;
+    width: 70px;
+    height: 10px;
+    background: white;
+    
+    
+  }
+  .volume-percentage {
+    background: coral;
+    height: 100%;
+    width: 75%;
+  }

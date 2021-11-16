@@ -12,7 +12,7 @@ footer {
 }
 
 footer .link-github {
-  background-image: url("../assets/img/png/648256.png");
+  background-image: url("../assets/img/icons/648256.png");
   background-size: contain;
   width: 50px;
   height: 50px;
@@ -24,7 +24,7 @@ footer .year {
 }
 
 footer .link-school {
-  background-image: url("../assets/img/png/logo_rs_text.svg");
+  background-image: url("../assets/img/icons/logo_rs_text.svg");
   background-repeat: no-repeat;
   background-size: contain;
   width: 100px;
@@ -44,7 +44,7 @@ footer .link-school {
 
 .application-container .btn-settings {
   background: none;
-  background-image: url("../assets/img/png/260867.png");
+  background-image: url("../assets/img/icons/260867.png");
   background-size: cover;
   width: 50px;
   height: 50px;
@@ -58,7 +58,7 @@ footer .link-school {
       justify-content: space-around;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  padding-top: 80%;
+  margin-top: 320px;
 }
 
 .application-container .content-container h1 {
@@ -119,4 +119,97 @@ footer .link-school {
   position: relative;
   top: 130px;
   text-transform: uppercase;
+}
+
+.settings-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-top: 320px;
+  background: #000;
+}
+
+.settings-container .settings-title {
+  text-align: center;
+  color: white;
+  text-transform: uppercase;
+  font-family: arial;
+  height: 10%;
+  font-size: 54px;
+}
+
+.settings-container .settings-time {
+  width: 80%;
+  margin: 0 auto;
+  height: 130px;
+  border-radius: 50px;
+  border: solid 2px white;
+}
+
+.settings-container .settings-time .time-title {
+  text-align: center;
+  color: white;
+  text-transform: uppercase;
+}
+
+.settings-container .settings-volume {
+  width: 80%;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  height: 130px;
+  border-radius: 50px;
+  border: solid 2px white;
+}
+
+.settings-container .settings-volume .volume-title {
+  text-align: center;
+  color: white;
+  text-transform: uppercase;
+}
+
+.volume-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+  width: 100px;
+  height: 50px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.volume-button {
+  height: 20px;
+  width: 20px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.volume-button {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transform: scale(0.7);
+          transform: scale(0.7);
+}
+
+.volume-slider {
+  margin-top: 8px;
+  width: 70px;
+  height: 10px;
+  background: white;
+}
+
+.volume-percentage {
+  background: coral;
+  height: 100%;
+  width: 75%;
 }
