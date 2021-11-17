@@ -3,6 +3,7 @@ body {
 }
 
 footer {
+  margin-top: 100px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -31,185 +32,253 @@ footer .link-school {
   height: 50px;
 }
 
-.application-container {
-  background: #000;
-  background-image: url("../assets/img/1581998253_dark-minimalist_vsthemes_ru-27.jpg");
-  background-repeat: no-repeat;
-  background-size: contain;
-  width: 30%;
-  min-width: 320px;
-  height: 90vh;
-  margin: 0 auto;
+header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-.application-container .btn-settings {
+header h1 {
+  -ms-flex-preferred-size: 55%;
+      flex-basis: 55%;
+  display: inline;
+  text-align: right;
+  color: white;
+  text-transform: uppercase;
+  font-family: arial;
+  height: 10%;
+  font-size: 54px;
+}
+
+header .btn-settings {
+  -ms-flex-preferred-size: 45%;
+      flex-basis: 45%;
   background: none;
-  background-image: url("../assets/img/icons/260867.png");
-  background-size: cover;
-  width: 50px;
+  background-image: url("../assets/img/icons/carbon_settings.png");
+  background-size: contain;
+  max-width: 50px;
   height: 50px;
+  border: none;
+  margin-left: 50px;
+}
+
+header .btn-settings:hover {
+  -webkit-animation: spin 5s linear 0s infinite;
+          animation: spin 5s linear 0s infinite;
+}
+
+header .btn-settings:active {
+  -webkit-animation: spin 2s linear 0s infinite;
+          animation: spin 2s linear 0s infinite;
+}
+
+header .home {
+  background: none;
+  color: white;
+  border: white solid 2px;
+  border-radius: 5px;
+  width: 100px;
+  height: 40px;
+  text-transform: uppercase;
+  margin-left: 50px;
+}
+
+.application-container {
+  /* background-image: url('../assets/img/j-retrato-de-cardenal-rafael\ 1.png');
+    background-repeat: no-repeat;
+    background-size: cover; */
+  width: 100%;
+  min-width: 320px;
+  margin: 0 auto;
 }
 
 .application-container .content-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  row-gap: 70px;
+  -webkit-column-gap: 100px;
+          column-gap: 100px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   margin-top: 320px;
 }
 
-.application-container .content-container h1 {
-  text-align: center;
-  -webkit-box-flex: 0;
-      -ms-flex: 0 1 100%;
-          flex: 0 1 100%;
-  color: white;
-  text-transform: uppercase;
-  font-family: arial;
-  height: 10%;
-  font-size: 54px;
-}
-
-.application-container .content-container .artists-quiz {
+.application-container .content-container .artists-quiz, .application-container .content-container .pictures-quiz {
   -webkit-box-flex: 0;
       -ms-flex: 0 1 50%;
           flex: 0 1 50%;
   background-image: url("../assets/img/dali-photo.jpg");
   background-size: cover;
-  max-width: 120px;
-  height: 120px;
+  max-width: 280px;
+  height: 280px;
   border-radius: 50px;
   border: solid 2px white;
 }
 
-.application-container .content-container .artists-quiz button {
+.application-container .content-container .artists-quiz button, .application-container .content-container .pictures-quiz button {
   background: none;
   color: white;
   border: white solid 2px;
   border-radius: 5px;
-  width: 120px;
+  width: 280px;
   height: 40px;
   position: relative;
-  top: 130px;
+  top: -50px;
   text-transform: uppercase;
 }
 
 .application-container .content-container .pictures-quiz {
-  -webkit-box-flex: 0;
-      -ms-flex: 0 1 50%;
-          flex: 0 1 50%;
   background-image: url("../assets/img/dalitime.jpg");
-  background-size: cover;
-  max-width: 120px;
-  height: 120px;
-  border-radius: 50px;
-  border: solid 2px white;
-}
-
-.application-container .content-container .pictures-quiz button {
-  background: none;
-  color: white;
-  border: white solid 2px;
-  border-radius: 5px;
-  width: 120px;
-  height: 40px;
-  position: relative;
-  top: 130px;
-  text-transform: uppercase;
 }
 
 .settings-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  margin-top: 320px;
-  background: #000;
+  row-gap: 70px;
+  -webkit-column-gap: 100px;
+          column-gap: 100px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin-top: 100px;
 }
 
 .settings-container .settings-title {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 100%;
+          flex: 1 0 100%;
   text-align: center;
   color: white;
   text-transform: uppercase;
   font-family: arial;
-  height: 10%;
   font-size: 54px;
 }
 
-.settings-container .settings-time {
-  width: 80%;
-  margin: 0 auto;
-  height: 130px;
+.settings-container .settings-volume, .settings-container .settings-time {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 50%;
+          flex: 0 1 50%;
+  background-size: cover;
+  max-width: 280px;
+  height: 280px;
   border-radius: 50px;
   border: solid 2px white;
 }
 
-.settings-container .settings-time .time-title {
+.settings-container .settings-volume .volume-title, .settings-container .settings-volume .time-title, .settings-container .settings-time .volume-title, .settings-container .settings-time .time-title {
   text-align: center;
   color: white;
   text-transform: uppercase;
 }
 
-.settings-container .settings-volume {
-  width: 80%;
-  margin: 0 auto;
-  margin-bottom: 10px;
-  height: 130px;
-  border-radius: 50px;
-  border: solid 2px white;
-}
-
-.settings-container .settings-volume .volume-title {
-  text-align: center;
-  color: white;
-  text-transform: uppercase;
-}
-
-.volume-container {
+.settings-container .settings-volume .volume-container, .settings-container .settings-time .volume-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
   cursor: pointer;
-  position: relative;
-  z-index: 2;
-  width: 100px;
-  height: 50px;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin: 0 auto;
 }
 
-.volume-button {
+.settings-container .settings-volume .volume-container .volume-button, .settings-container .settings-time .volume-container .volume-button {
   height: 20px;
   width: 20px;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  background: url("../assets/img/icons/sound_PNG6.png");
+  background-size: contain;
+  z-index: 200;
 }
 
-.volume-button {
+.settings-container .settings-volume .volume-container .volume-button-mute, .settings-container .settings-time .volume-container .volume-button-mute {
+  height: 20px;
+  width: 20px;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-transform: scale(0.7);
-          transform: scale(0.7);
+  background: url("../assets/img/icons/sound.png");
+  background-size: contain;
+  z-index: 200;
 }
 
-.volume-slider {
-  margin-top: 8px;
-  width: 70px;
+.settings-container .settings-volume .volume-container .volume-slider, .settings-container .settings-time .volume-container .volume-slider {
+  margin: 0 10px;
+  width: 60%;
   height: 10px;
   background: white;
 }
 
-.volume-percentage {
+.settings-container .settings-volume .volume-container .volume-slider .volume-percentage, .settings-container .settings-time .volume-container .volume-slider .volume-percentage {
   background: coral;
   height: 100%;
-  width: 75%;
+  width: 70%;
+}
+
+.artistsquiz-container {
+  background: black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  max-width: 1200px;
+  -webkit-column-gap: 20px;
+          column-gap: 20px;
+  row-gap: 20px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin: 0 auto;
+  margin-top: 120px;
+}
+
+.artistsquiz-container .artists-quiz-card-container {
+  width: 180px;
+  height: 220px;
+  color: white;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.artistsquiz-container .artists-quiz-card-container .artists-quiz-card {
+  width: 180px;
+  height: 180px;
+  background-size: cover;
+  border-radius: 10px;
+}
+
+@-webkit-keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
 }

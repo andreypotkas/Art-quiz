@@ -8,7 +8,9 @@ module.exports={
     mode: 'development',
     entry:{
         main:'./index.js',
-        settings:'./settings.js'
+        settings:'./settings.js',
+        category:'./category.js',
+        artistsQuiz: './artistsQuiz.js'
     },
     output: {
         filename:'[name].bundle.js',

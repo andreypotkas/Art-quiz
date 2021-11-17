@@ -1,7 +1,9 @@
 body{
     background: #000;
 }
+
 footer{
+    margin-top: 100px;
     display: flex;
     justify-content: space-around;
     color: white;
@@ -23,42 +25,72 @@ footer{
         height: 50px;
     }
 }
-.application-container{
-    background: #000;
-    background-image: url('../assets/img/1581998253_dark-minimalist_vsthemes_ru-27.jpg');
-    background-repeat: no-repeat;
-    background-size: contain;
-    width: 30%;
-    min-width: 320px;
-    height:90vh;
-    margin: 0 auto;
-    .btn-settings{
-        background:none;
-        background-image: url('../assets/img/icons/260867.png');
-        background-size: cover;
-        width: 50px;
-        height: 50px;
-    }
-    .content-container{
-        display: flex;
-        justify-content: space-around;
-        flex-wrap: wrap;
-        margin-top: 320px;
+
+header{
+    display: flex;
+    align-items: center;
+    
     h1{
-        text-align: center;
-        flex: 0 1 100%;
+        flex-basis:55%;
+        display: inline;
+        text-align: right;
         color: white;
         text-transform: uppercase;
         font-family: arial;
         height: 10%;
         font-size: 54px;
-    }  
-    .artists-quiz{
+        
+    } 
+    .btn-settings{
+        flex-basis: 45%;
+        background:none;
+        background-image: url('../assets/img/icons/carbon_settings.png');
+        background-size: contain;
+        max-width: 50px;
+        height: 50px;
+        border: none;
+        margin-left: 50px;
+       
+        &:hover{
+            animation: spin 5s linear 0s infinite;
+          }
+        &:active{
+            animation: spin 2s linear 0s infinite;
+          }
+            
+    }
+    .home{
+        background: none;
+        color: white;
+        border: white solid 2px;
+        border-radius: 5px;
+        width: 100px;
+        height: 40px;
+        text-transform: uppercase;  
+        margin-left: 50px;
+    }
+}
+.application-container{
+    /* background-image: url('../assets/img/j-retrato-de-cardenal-rafael\ 1.png');
+    background-repeat: no-repeat;
+    background-size: cover; */
+    width: 100%;
+    min-width: 320px;
+    margin: 0 auto;
+    .content-container{
+        display: flex;
+        row-gap: 70px;
+        column-gap: 100px;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 320px;
+    
+    .artists-quiz, .pictures-quiz{
         flex: 0 1 50%;
         background-image: url('../assets/img/dali-photo.jpg');
         background-size: cover;
-        max-width: 120px;
-        height: 120px;
+        max-width: 280px;
+        height: 280px;
         border-radius: 50px;
         border: solid 2px white;
         button{
@@ -66,106 +98,116 @@ footer{
             color: white;
             border: white solid 2px;
             border-radius: 5px;
-            width: 120px;
+            width: 280px;
             height: 40px;
             position: relative;
-            top: 130px;
+            top: -50px;
             text-transform: uppercase;
         }
     }
     .pictures-quiz{
-        flex: 0 1 50%;
         background-image: url('../assets/img/dalitime.jpg');
-        background-size: cover;
-        max-width: 120px;
-        height: 120px;
-        border-radius: 50px;
-        border: solid 2px white;
-        button{
-            background: none;
-            color: white;
-            border: white solid 2px;
-            border-radius: 5px;
-            width: 120px;
-            height: 40px;
-            position: relative;
-            top: 130px;
-            text-transform: uppercase;
-        }
     }
     }
 }
 
 .settings-container{
-        display: flex;
-        flex-direction: column;
-        margin-top: 320px;
-        background: #000;
+    display: flex;
+    row-gap: 70px;
+    column-gap: 100px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 100px;
+        
     .settings-title{
+        flex: 1 0 100%;
         text-align: center;
         color: white;
         text-transform: uppercase;
         font-family: arial;
-        height: 10%;
         font-size: 54px;
     }  
-    .settings-time{
-        width: 80%;
-        margin: 0 auto;
-        height: 130px;
+    
+    .settings-volume, .settings-time{
+        flex: 0 1 50%;
+        background-size: cover;
+        max-width: 280px;
+        height: 280px;
         border-radius: 50px;
         border: solid 2px white;
-        .time-title{
+        .volume-title, .time-title{
             text-align: center;
             color: white;
             text-transform: uppercase;
         }
-    }
-    .settings-volume{
-        width: 80%;
-        margin: 0 auto;
-        margin-bottom: 10px;
-        height: 130px;
-        border-radius: 50px;
-        border: solid 2px white;
-        .volume-title{
+        .volume-container {
+            display: flex;
+            justify-content: center;
             text-align: center;
-            color: white;
-            text-transform: uppercase;
-        }
+            cursor: pointer;
+            align-items: center;
+            margin: 0 auto;
+            .volume-button {
+                height: 20px;
+                width: 20px;
+                align-items: center;
+                background: url('../assets/img/icons/sound_PNG6.png');
+                background-size: contain;
+                z-index:200;
+            }
+            .volume-button-mute {
+                height: 20px;
+                width: 20px;
+                align-items: center;
+                background: url('../assets/img/icons/sound.png');
+                background-size: contain;
+                z-index:200;
+            }
+            .volume-slider {
+                margin: 0 10px;
+                width: 60%;
+                height: 10px;
+                background: white;
+                .volume-percentage {
+                    background: coral;
+                    height: 100%;
+                    width: 70%;
+                  }
+              }
+          }
     }
 }
 
 
 
-.volume-container {
+  .artistsquiz-container{
+    background: black;
     display: flex;
-    cursor: pointer;
-    position: relative;
-    z-index: 2;
-    width: 100px;
-    height: 50px;
-    align-items: center;
+    max-width: 1200px;
+    column-gap: 20px;
+    row-gap: 20px;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    margin-top: 120px;
+    
+    
+    .artists-quiz-card-container{
+        width: 180px;
+        height: 220px;
+        color: white;
+        text-align: center;
+        text-transform: uppercase;
+        .artists-quiz-card{
+            width: 180px;
+            height: 180px;
+            background-size: cover;
+            border-radius: 10px;
+        }
+    }
   }
-  .volume-button {
-    height: 20px;
-    width: 20px;
-    align-items: center;
-  }
-  .volume-button {
-    align-items: center;
-    transform: scale(0.7);
+
+  
+  @keyframes spin {
+    from {transform:rotate(0deg);}
+    to {transform:rotate(360deg);}
 }
-.volume-slider {
-    margin-top: 8px;
-    width: 70px;
-    height: 10px;
-    background: white;
-    
-    
-  }
-  .volume-percentage {
-    background: coral;
-    height: 100%;
-    width: 75%;
-  }
