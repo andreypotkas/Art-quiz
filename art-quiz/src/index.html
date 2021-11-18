@@ -13,19 +13,38 @@
         <h1>Art-quiz</h1>
         <button class="btn-settings" id="btn-settings"></button>
     </header>
-    <main class="application-container" id="application-container">
+   
+    <main id="main">
+        <section class="application-container" id="application-container">
 
-        <div class="content-container" id="content-container">
+            <div class="content-container" id="content-container">
 
-            <div class="artists-quiz">
-                <button id="artists-quiz">artists-quiz</button>
+                <div class="artists-quiz">
+                    <button id="artists-quiz">artists-quiz</button>
+                </div>
+                <div class="pictures-quiz">
+                    <button id="pictures-quiz">pictures-quiz</button>
+                </div>
             </div>
-            <div class="pictures-quiz">
-                <button id="pictures-quiz">pictures-quiz</button>
+        </section>
+        <section class="settings-container hide" id="settings-container">
+            <h2 class="settings-title">settings</h2>
+            <div class="settings-volume">
+                <h3 class="volume-title">volume</h3>
+                <div class="volume-container">
+                    <div class="volume-button-mute">
+                    </div>
+                    <div class="volume-slider" id="volume-slider">
+                        <div class="volume-percentage"></div>
+                    </div>
+                    <div class="volume-button">
+                    </div>
+                </div>
             </div>
-        </div>
-
-
+            <div class="settings-time">
+                <h3 class="time-title">time</h3>
+            </div>
+        </section>
     </main>
     <footer>
         <a class="link-github" href="https://github.com/andreypotkas"></a>

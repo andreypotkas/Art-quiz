@@ -10,11 +10,16 @@ module.exports={
         main:'./index.js',
         settings:'./settings.js',
         category:'./category.js',
-        artistsQuiz: './artistsQuiz.js'
+        artistsQuiz: './artistsQuiz.js',
+        questionPage: './questionPage.js',
+        constants: './constants.js'
     },
     output: {
         filename:'[name].bundle.js',
         path: path.resolve(__dirname, 'dist')
+    },
+    devServer:{
+        port: 4200
     },
     plugins:[
         new HTMLWebpackPlugin({

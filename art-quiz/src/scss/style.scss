@@ -74,6 +74,9 @@ header{
     /* background-image: url('../assets/img/j-retrato-de-cardenal-rafael\ 1.png');
     background-repeat: no-repeat;
     background-size: cover; */
+    display: flex;
+    column-gap: 70px;
+    justify-content: center;
     width: 100%;
     min-width: 320px;
     margin: 0 auto;
@@ -118,6 +121,8 @@ header{
     justify-content: center;
     flex-wrap: wrap;
     margin-top: 100px;
+    position: absolute;
+    display:none;
         
     .settings-title{
         flex: 1 0 100%;
@@ -211,3 +216,55 @@ header{
     from {transform:rotate(0deg);}
     to {transform:rotate(360deg);}
 }
+
+
+.img-question{
+    flex: 1 0;
+    display: block;
+    margin: 0 auto;
+    
+}
+.question-img-container{
+ display: flex;
+ flex-direction: column;
+}
+
+.answer-button{
+            
+            background: none;
+            color: white;
+            border: white solid 2px;
+            border-radius: 5px;
+            width: 380px;
+            height: 40px;
+            position: relative;
+            top: -50px;
+            text-transform: uppercase;
+}
+
+.hide{
+    
+    animation: 1s hideLeft forwards;
+    display: none;
+    position: absolute;
+}
+.show{
+    display: flex;
+    position: relative;
+    animation: 1s showLeft forwards;
+    
+}
+@keyframes hideLeft {
+
+    from {transform:none;}
+    
+    to {transform: translateX(110%);}
+    
+    } 
+@keyframes showLeft {
+
+        from {transform:translateX(110%);}
+        
+        to {transform: none;}
+        
+        } 

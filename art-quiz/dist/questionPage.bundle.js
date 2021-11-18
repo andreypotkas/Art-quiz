@@ -10,16 +10,6 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./artistsQuiz.js":
-/*!************************!*\
-  !*** ./artistsQuiz.js ***!
-  \************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./constants */ \"./constants.js\");\n\r\n\r\n\r\n\r\nconst startPage = document.createElement('button');\r\n\r\n_constants__WEBPACK_IMPORTED_MODULE_0__.artistsQuizContainer.classList.add('artistsquiz-container');\r\nlet isArtistQuizPage=false;\r\n\r\n\r\nstartPage.classList.add('home');\r\nstartPage.innerHTML='start page';\r\n\r\nstartPage.addEventListener('click', function(){\r\n_constants__WEBPACK_IMPORTED_MODULE_0__.artistsQuizContainer.classList.add('hide');\r\n_constants__WEBPACK_IMPORTED_MODULE_0__.artistsQuizContainer.classList.remove('show');\r\n_constants__WEBPACK_IMPORTED_MODULE_0__.applicationContainer.classList.remove('hide');\r\n_constants__WEBPACK_IMPORTED_MODULE_0__.applicationContainer.classList.add('show');\r\n_constants__WEBPACK_IMPORTED_MODULE_0__.btnSettings.classList.remove('hide');\r\nstartPage.classList.add('hide');\r\n});\r\n\r\n\r\n   function createArtistsQuizCard(id){    \r\n    const artistsQuizCardContainer= document.createElement('div');\r\n    artistsQuizCardContainer.classList.add('artists-quiz-card-container', `${id}`);\r\n    _constants__WEBPACK_IMPORTED_MODULE_0__.artistsQuizContainer.append(artistsQuizCardContainer);\r\n\r\n    const artistsQuizCardTitle= document.createElement('h3');\r\n    artistsQuizCardTitle.innerHTML=`Category ${id+1}`;\r\n    artistsQuizCardContainer.append(artistsQuizCardTitle);\r\n    \r\n    const artistsQuizCard= document.createElement('div');\r\n    artistsQuizCard.style.background=`url(../src/assets/image-data/img/${(id+1)*10}.jpg)`;\r\n    artistsQuizCard.style.backgroundSize='cover';\r\n    artistsQuizCard.classList.add('artists-quiz-card');\r\n    artistsQuizCardContainer.append(artistsQuizCard);\r\n}\r\n\r\nfunction createArtistsQuizPage (){\r\n    if(isArtistQuizPage==false){\r\n        _constants__WEBPACK_IMPORTED_MODULE_0__.header.append(startPage);\r\n        \r\n        \r\n        main.append(_constants__WEBPACK_IMPORTED_MODULE_0__.artistsQuizContainer);\r\n        for (let i =0; i<12;i++){\r\n            createArtistsQuizCard(i);\r\n        }\r\n        isArtistQuizPage=true;\r\n    }\r\n    _constants__WEBPACK_IMPORTED_MODULE_0__.artistsQuizContainer.classList.remove('hide');\r\n    _constants__WEBPACK_IMPORTED_MODULE_0__.artistsQuizContainer.classList.add('show');\r\n    startPage.classList.remove('hide');\r\n    _constants__WEBPACK_IMPORTED_MODULE_0__.btnSettings.classList.add('hide');\r\n    _constants__WEBPACK_IMPORTED_MODULE_0__.applicationContainer.classList.add('hide');\r\n    _constants__WEBPACK_IMPORTED_MODULE_0__.applicationContainer.classList.remove('show');\r\n   \r\n}\r\n\r\n_constants__WEBPACK_IMPORTED_MODULE_0__.btnArtistsQuiz.addEventListener('click', createArtistsQuizPage);\r\n_constants__WEBPACK_IMPORTED_MODULE_0__.btnPicturesQuiz.addEventListener('click', createArtistsQuizPage);\r\n_constants__WEBPACK_IMPORTED_MODULE_0__.artistsQuizContainer.onclick = function (event) {\r\n    let target = event.target; \r\n    function highlight() {\r\n        const questionImgContainer = document.createElement('div');\r\n        questionImgContainer.classList.add('question-img-container');\r\n        questionImgContainer.classList.add('hide');\r\n        _constants__WEBPACK_IMPORTED_MODULE_0__.artistsQuizContainer.classList.remove('show');\r\n        _constants__WEBPACK_IMPORTED_MODULE_0__.artistsQuizContainer.classList.add('hide');\r\n        main.append(questionImgContainer);\r\n        questionImgContainer.classList.remove('hide');\r\n        questionImgContainer.classList.add('show');\r\n        let numCategory =10*parseInt(target.parentElement.className.replace(/[^\\d]/g, ''));\r\n        const imgQuestion =  new Image(800, 500);\r\n        imgQuestion.src = `../src/assets/image-data/full/${numCategory}full.jpg`;\r\n        imgQuestion.classList.add('img-question');\r\n        questionImgContainer.append(imgQuestion);\r\n        for(let i =0; i<4;i++){\r\n            const answerButton = document.createElement('button');\r\n            answerButton.classList.add('answer-button');\r\n            imgQuestion.after(answerButton);\r\n        }\r\n\r\n        _constants__WEBPACK_IMPORTED_MODULE_0__.artistsQuizContainer.classList.add('hide');\r\n        \r\n        \r\n        console.log(_constants__WEBPACK_IMPORTED_MODULE_0__.questions.categoryQuestionsByAuthor[0]);\r\n    }\r\n    if (target.tagName == 'DIV'){\r\n        highlight();\r\n    } \r\n  };\n\n//# sourceURL=webpack:///./artistsQuiz.js?");
-
-/***/ }),
-
 /***/ "./assets/image-data/images.js":
 /*!*************************************!*\
   !*** ./assets/image-data/images.js ***!
@@ -47,6 +37,16 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"btnSettings\": () => (/* binding */ btnSettings),\n/* harmony export */   \"header\": () => (/* binding */ header),\n/* harmony export */   \"applicationContainer\": () => (/* binding */ applicationContainer),\n/* harmony export */   \"settingsContainer\": () => (/* binding */ settingsContainer),\n/* harmony export */   \"main\": () => (/* binding */ main),\n/* harmony export */   \"btnArtistsQuiz\": () => (/* binding */ btnArtistsQuiz),\n/* harmony export */   \"btnPicturesQuiz\": () => (/* binding */ btnPicturesQuiz),\n/* harmony export */   \"questions\": () => (/* binding */ questions),\n/* harmony export */   \"artistsQuizContainer\": () => (/* binding */ artistsQuizContainer)\n/* harmony export */ });\n/* harmony import */ var _category__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./category */ \"./category.js\");\n\r\n\r\nconst btnSettings = document.getElementById(\"btn-settings\");\r\nconst header = document.getElementById(\"header\");\r\nconst applicationContainer = document.getElementById(\"application-container\");\r\nconst settingsContainer = document.getElementById(\"settings-container\");\r\nconst main = document.getElementById(\"main\");\r\nconst btnArtistsQuiz = document.getElementById('artists-quiz');\r\nconst btnPicturesQuiz = document.getElementById('pictures-quiz');\r\nconst questions = _category__WEBPACK_IMPORTED_MODULE_0__[\"default\"].render();\r\nconst artistsQuizContainer= document.createElement('section');\r\n\n\n//# sourceURL=webpack:///./constants.js?");
+
+/***/ }),
+
+/***/ "./questionPage.js":
+/*!*************************!*\
+  !*** ./questionPage.js ***!
+  \*************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./constants */ \"./constants.js\");\n\r\n\r\n\r\n\r\n\n\n//# sourceURL=webpack:///./questionPage.js?");
 
 /***/ })
 
@@ -110,7 +110,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval devtool is used.
-/******/ 	var __webpack_exports__ = __webpack_require__("./artistsQuiz.js");
+/******/ 	var __webpack_exports__ = __webpack_require__("./questionPage.js");
 /******/ 	
 /******/ })()
 ;

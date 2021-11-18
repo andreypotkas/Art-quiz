@@ -90,6 +90,14 @@ header .home {
   /* background-image: url('../assets/img/j-retrato-de-cardenal-rafael\ 1.png');
     background-repeat: no-repeat;
     background-size: cover; */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-column-gap: 70px;
+          column-gap: 70px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   width: 100%;
   min-width: 320px;
   margin: 0 auto;
@@ -151,6 +159,8 @@ header .home {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   margin-top: 100px;
+  position: absolute;
+  display: none;
 }
 
 .settings-container .settings-title {
@@ -280,5 +290,95 @@ header .home {
   to {
     -webkit-transform: rotate(360deg);
             transform: rotate(360deg);
+  }
+}
+
+.img-question {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0;
+          flex: 1 0;
+  display: block;
+  margin: 0 auto;
+}
+
+.question-img-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.answer-button {
+  background: none;
+  color: white;
+  border: white solid 2px;
+  border-radius: 5px;
+  width: 380px;
+  height: 40px;
+  position: relative;
+  top: -50px;
+  text-transform: uppercase;
+}
+
+.hide {
+  -webkit-animation: 1s hideLeft forwards;
+          animation: 1s hideLeft forwards;
+  display: none;
+  position: absolute;
+}
+
+.show {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -webkit-animation: 1s showLeft forwards;
+          animation: 1s showLeft forwards;
+}
+
+@-webkit-keyframes hideLeft {
+  from {
+    -webkit-transform: none;
+            transform: none;
+  }
+  to {
+    -webkit-transform: translateX(110%);
+            transform: translateX(110%);
+  }
+}
+
+@keyframes hideLeft {
+  from {
+    -webkit-transform: none;
+            transform: none;
+  }
+  to {
+    -webkit-transform: translateX(110%);
+            transform: translateX(110%);
+  }
+}
+
+@-webkit-keyframes showLeft {
+  from {
+    -webkit-transform: translateX(110%);
+            transform: translateX(110%);
+  }
+  to {
+    -webkit-transform: none;
+            transform: none;
+  }
+}
+
+@keyframes showLeft {
+  from {
+    -webkit-transform: translateX(110%);
+            transform: translateX(110%);
+  }
+  to {
+    -webkit-transform: none;
+            transform: none;
   }
 }
