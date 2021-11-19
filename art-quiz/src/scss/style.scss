@@ -29,9 +29,10 @@ footer{
 header{
     display: flex;
     align-items: center;
+    justify-content: center;
     
     h1{
-        flex-basis:55%;
+        margin:0 50px;
         display: inline;
         text-align: right;
         color: white;
@@ -42,14 +43,14 @@ header{
         
     } 
     .btn-settings{
-        flex-basis: 45%;
+        width: 50px;
         background:none;
         background-image: url('../assets/img/icons/carbon_settings.png');
         background-size: contain;
         max-width: 50px;
         height: 50px;
         border: none;
-        margin-left: 50px;
+        
        
         &:hover{
             animation: spin 5s linear 0s infinite;
@@ -59,7 +60,7 @@ header{
           }
             
     }
-    .home{
+    .start-page{
         background: none;
         color: white;
         border: white solid 2px;
@@ -235,11 +236,12 @@ header{
             color: white;
             border: white solid 2px;
             border-radius: 5px;
-            width: 380px;
             height: 40px;
             position: relative;
-            top: -50px;
             text-transform: uppercase;
+            width: 100%;
+            min-width: 120px;
+            flex: 0 1 50%;
 }
 
 .hide{
@@ -268,3 +270,12 @@ header{
         to {transform: none;}
         
         } 
+
+
+.button-container{
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 10px;
+    column-gap: 10px;
+}

@@ -39,11 +39,13 @@ header {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 header h1 {
-  -ms-flex-preferred-size: 55%;
-      flex-basis: 55%;
+  margin: 0 50px;
   display: inline;
   text-align: right;
   color: white;
@@ -54,15 +56,13 @@ header h1 {
 }
 
 header .btn-settings {
-  -ms-flex-preferred-size: 45%;
-      flex-basis: 45%;
+  width: 50px;
   background: none;
   background-image: url("../assets/img/icons/carbon_settings.png");
   background-size: contain;
   max-width: 50px;
   height: 50px;
   border: none;
-  margin-left: 50px;
 }
 
 header .btn-settings:hover {
@@ -75,7 +75,7 @@ header .btn-settings:active {
           animation: spin 2s linear 0s infinite;
 }
 
-header .home {
+header .start-page {
   background: none;
   color: white;
   border: white solid 2px;
@@ -316,11 +316,14 @@ header .home {
   color: white;
   border: white solid 2px;
   border-radius: 5px;
-  width: 380px;
   height: 40px;
   position: relative;
-  top: -50px;
   text-transform: uppercase;
+  width: 100%;
+  min-width: 120px;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 50%;
+          flex: 0 1 50%;
 }
 
 .hide {
@@ -381,4 +384,18 @@ header .home {
     -webkit-transform: none;
             transform: none;
   }
+}
+
+.button-container {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  row-gap: 10px;
+  -webkit-column-gap: 10px;
+          column-gap: 10px;
 }

@@ -1,4 +1,4 @@
-import { header, btnSettings, applicationContainer, settingsContainer, main} from "./constants";
+import { header,  questionImgContainer, btnSettings, applicationContainer, settingsContainer, main, hideAndShow, toggleBtnSettingsHome, artistsQuizContainer} from "./constants";
 
 const volumeSlider = document.getElementById("volume-slider");
 volumeSlider.addEventListener(
@@ -12,35 +12,22 @@ volumeSlider.addEventListener(
   false
 );
 
-
- function addSettingsOnPage() {
-  applicationContainer.classList.remove("show");
-  applicationContainer.classList.add("hide");
-  settingsContainer.classList.remove("hide");
-  settingsContainer.classList.add("show");
-}
-
- function callStartPage() {
-  applicationContainer.classList.remove("hide");
-  settingsContainer.classList.remove("show");
-  settingsContainer.classList.add("hide");
-  applicationContainer.classList.add("show");
-}
-
-
-
- function btnSettingsToggle () {
-  if (btnSettings.classList.contains("home")) {
-    callStartPage();
-    btnSettings.classList.add("btn-settings");
-    btnSettings.classList.remove("home");
-    btnSettings.innerHTML = "";
-  } else if (btnSettings.classList.contains("btn-settings")) {
-    btnSettings.classList.remove("btn-settings");
-    btnSettings.classList.add("home");
-    btnSettings.innerHTML = "start page";
-    addSettingsOnPage();
+ function hideAndShowPages () {
+  if (settingsContainer.classList.contains("show")) {
+    hideAndShow(settingsContainer, applicationContainer);
+    toggleBtnSettingsHome();
+  } else if (applicationContainer.classList.contains("show")) {
+    hideAndShow(applicationContainer, settingsContainer);
+    toggleBtnSettingsHome();
+  } else if(artistsQuizContainer.classList.contains("show")){
+    hideAndShow(artistsQuizContainer, applicationContainer);
+    toggleBtnSettingsHome();
+  } else if (questionImgContainer.classList.contains("show")){
+    hideAndShow(questionImgContainer, applicationContainer);
+    toggleBtnSettingsHome();
   }
-  };
+};
 
-  export {btnSettingsToggle};
+  export {hideAndShowPages};
+
+  
