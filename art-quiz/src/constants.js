@@ -1,3 +1,4 @@
+import images from "./assets/image-data/images";
 import category from "./category";
 
 export const btnSettings = document.getElementById("btn-settings");
@@ -9,11 +10,19 @@ export const btnArtistsQuiz = document.getElementById('artists-quiz');
 export const btnPicturesQuiz = document.getElementById('pictures-quiz');
 export const questions = category.render();
 export const artistsQuizContainer= document.createElement('section');
-export const namesAuthors = [];
-export const questionImgContainer = document.createElement('div');
+export const namesAuthors=[]; 
+export const questionImgContainer = document.getElementById('question-img-container');
 export const btnCategories = document.createElement('button');
-export const buttonContainer = document.createElement('div');      
+export const buttonContainer =  document.getElementById('button-container');   
+export const nextQuestionBtn = document.createElement('button');
+export const answerButton = document.getElementById('answer-button');
+export let answersButtons =buttonContainer.querySelectorAll('.answer-button');
+export const imgQuestion =  document.getElementById('question-img');
 
+
+images.forEach((e)=>{
+  namesAuthors.push(e.author);
+});
 function hideAndShow (hide, show){
     hide.classList.add('hide');
     hide.classList.remove('show');
@@ -41,18 +50,7 @@ function toggleBtnSettingsHome(){
   }
 export {toggleBtnSettingsHome};
 
-questions.categoryQuestionsByAuthor.forEach((e)=>{
-  e.forEach((e)=>{
-   namesAuthors.push(e.author);
-   
-  })
-});
-questions.categoryQuestionsByName.forEach((e)=>{
-e.forEach((e)=>{
- namesAuthors.push(e.author);
- 
-})
-});
+
 
 function toggleBtnCategories() {
   if (!btnCategories.classList.contains('hide')){
@@ -62,27 +60,14 @@ function toggleBtnCategories() {
   }
   btnCategories.classList.remove('hide');
 }
+
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min)) + min; //Максимум не включается, минимум включается
+}
+export {getRandomInt};
 export {toggleBtnCategories};
 
 
-function createQuestionPage (numCategory) {
-  questionImgContainer.classList.add('question-img-container');
-  questionImgContainer.classList.add('hide');
-  main.append(questionImgContainer);
-  const imgQuestion =  new Image(800, 500);
-  imgQuestion.src = `../src/assets/image-data/full/${numCategory}full.jpg`;
-  imgQuestion.classList.add('img-question');
-  questionImgContainer.append(imgQuestion);
 
-  buttonContainer.classList.add('button-container');
-  questionImgContainer.append(buttonContainer);
-
-  for(let i =0; i<4;i++){
-      const answerButton = document.createElement('button');
-      answerButton.classList.add('answer-button');
-      buttonContainer.append(answerButton);
-      let randomAuthorName= namesAuthors[Math.floor(Math.random()*namesAuthors.length)];
-      answerButton.innerHTML=randomAuthorName;
-  }
-}
-export {createQuestionPage};
