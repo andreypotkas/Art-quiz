@@ -23,8 +23,15 @@ export const btnCategories = document.createElement("button");
 export const buttonContainer = document.getElementById("button-container");
 export const nextQuestionBtn = document.createElement("button");
 export const answerButton = document.getElementById("answer-button");
-export let answersButtons = buttonContainer.querySelectorAll(".answer-button");
+export const answersButtons = buttonContainer.querySelectorAll(".answer-button");
 export const imgQuestion = document.getElementById("question-img");
+export let isSound=true;
+export let timer = document.getElementById('tentacles');
+
+
+
+
+
 
 images.forEach((e) => {
   namesAuthors.push(e.author);

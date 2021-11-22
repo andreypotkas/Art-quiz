@@ -1,6 +1,8 @@
 import { resultPage } from "./artistsQuiz";
+import { timer, wrongAns, trueAns, finallySound, openFalseAnswer } from "./questionPage";
 import {
   header,
+  isSound,
   questionImgContainer,
   btnSettings,
   applicationContainer,
@@ -10,16 +12,57 @@ import {
   toggleBtnSettingsHome,
   artistsQuizContainer,
   picturesQuizContainer,
+  
 } from "./constants";
+
+document
+  .getElementById("volume-on-off")
+  .addEventListener("click", function (isSound) {
+    var checked = this.checked;
+    if (!checked) {
+      function volumeOff(elem) {
+        elem.muted = true;
+      }
+      volumeOff(trueAns);
+      volumeOff(wrongAns);
+      volumeOff(finallySound);
+      isSound = false;
+    } else {
+      function volumeOn(elem) {
+        elem.muted = false;
+      }
+      volumeOn(trueAns);
+      volumeOn(wrongAns);
+      volumeOn(finallySound);
+      isSound = true;
+    }
+  });
+document.getElementById("timer-on-off").addEventListener("click", function () {
+  var checked = this.checked;
+  if (!checked) {
+    timer.style.display = "none";
+  } else {
+    timer.style.display = "block";
+  }
+});
 
 const volumeSlider = document.getElementById("volume-slider");
 volumeSlider.addEventListener(
   "click",
   (e) => {
-    const sliderWidth = window.getComputedStyle(volumeSlider).width;
-    const newVolume = e.offsetX / parseInt(sliderWidth);
-    document.querySelector(".volume-percentage").style.width =
-      newVolume * 100 + "%";
+    if (isSound == false) {
+      volumeSlider.style.opacity = "0.5";
+    } else {
+      volumeSlider.style.opacity = "1.0";
+      const sliderWidth = window.getComputedStyle(volumeSlider).width;
+
+      const newVolume = e.offsetX / parseInt(sliderWidth);
+      wrongAns.volume = newVolume;
+      trueAns.volume = newVolume;
+      finallySound.volume = newVolume;
+      document.querySelector(".volume-percentage").style.width =
+        newVolume * 100 + "%";
+    }
   },
   false
 );

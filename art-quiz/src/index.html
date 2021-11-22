@@ -31,6 +31,7 @@
             <h2 class="settings-title">settings</h2>
             <div class="settings-volume">
                 <h3 class="volume-title">volume</h3>
+                <label class="volume-label"><input type="checkbox" checked class="volume-on-off" id="volume-on-off" ><span>on/off</span></label>
                 <div class="volume-container">
                     <div class="volume-button-mute">
                     </div>
@@ -43,10 +44,16 @@
             </div>
             <div class="settings-time">
                 <h3 class="time-title">time</h3>
+                  <label class="timer-label"><input type="checkbox" checked class="timer-on-off" id="timer-on-off" ><span>on/off</span></label>
+                  <label for="tentacles">enter time: (0...30 sec)</label>
+                    <input class="tentacles" value="10" type="number" step="5" id="tentacles" name="tentacles" min="0" max="30">
+                </div>
             </div>
         </section>
         <section class="question-img-container hide" id="question-img-container">
-            <img class="img-question" src="" alt="foto" id="question-img" width="800" height="400">
+            <div class="question" id="question">Кто автор этой картины?</div>
+            <img class="img-question" src="" alt="foto" id="question-img" width="50%">
+            <div class="timer-container" id="timer-container"></div>
             <div class="button-container" id="button-container">
                 <button class="answer-button" id="answer-button"></button>
                 <button class="answer-button" id="answer-button"></button>

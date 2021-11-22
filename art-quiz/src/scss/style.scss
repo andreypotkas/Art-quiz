@@ -124,7 +124,23 @@ header{
     margin-top: 100px;
     position: absolute;
     display:none;
-        
+    
+        label {
+            display: block;
+            font: 1rem 'Fira Sans', sans-serif;
+        }
+        .tentacles,
+        label {
+            text-align: center;
+            margin: .4rem 0;
+            color:white;
+            text-transform: uppercase;
+            align-self: center;
+        }
+        .tentacles{
+            margin-left: 40%;
+            color: black;
+        }
     .settings-title{
         flex: 1 0 100%;
         text-align: center;
@@ -180,6 +196,11 @@ header{
                     width: 70%;
                   }
               }
+          }
+          .settings-time{
+              display: flex;
+              justify-content: center;
+              flex-direction: column;
           }
     }
 }
@@ -245,7 +266,6 @@ header{
 }
 
 .answer-button{
-            
             background: none;
             color: white;
             border: white solid 2px;
@@ -253,7 +273,7 @@ header{
             height: 40px;
             position: relative;
             text-transform: uppercase;
-            width: 100%;
+            max-width: 400px;
             min-width: 120px;
             flex: 0 1 50%;
 }
@@ -292,6 +312,9 @@ header{
     flex-wrap: wrap;
     row-gap: 10px;
     column-gap: 10px;
+    width: 100%;
+    max-width: 840px;
+    margin: 0 auto;
 }
 
 .modal {
@@ -345,7 +368,11 @@ header{
       height: 200px;
       margin: 50px auto;
   }
-
+.question{
+    color: white;
+    font-size: 32px;
+    text-align: center;
+}
   .result-button-card{
     align-self: flex-end;
     background: rgb(255, 163, 163);
@@ -365,11 +392,50 @@ header{
     }
   }
   .result-page{
-      display: flex;
-      flex-wrap: wrap;
+    background: black;
+    display: flex;
+    max-width: 1200px;
+    column-gap: 20px;
+    row-gap: 20px;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    margin-top: 120px;
+
   }
   .result-question-card{
-      width: 150px;
-      height: 150px;
-      border-radius: 30px;
+    width: 180px;
+    
+    color: white;
+    text-align: center;
+    align-self: start;
+    text-transform: uppercase;
+    height: 180px;
+    border-radius: 30px;
+    background-size: cover;
+  }
+  .timer-container{
+      width: 200px;
+      margin: 10px auto;
+      font-size: 22px;
+      color: white;
+      text-transform: uppercase;
+      text-align: center;
+      border: 2px white solid;
+      
+  }
+  .volume-on-off{
+      width: 30px;
+      height: 30px;
+      
+      
+  }
+  .volume-label{
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      color: white;
+      text-transform: uppercase;
+      span{
+          display: block;
+      }
   }

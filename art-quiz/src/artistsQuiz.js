@@ -2,6 +2,7 @@ import { header, namesAuthors, btnSettings, applicationContainer, btnArtistsQuiz
 let isArtistQuizPage=false;
 let isPicturesQuizPage=false;
 import {createQuestionPage} from './questionPage';
+import { callTimer } from "./settings";
 export let resultPage = createElem('section', 'result-page'); 
 
 
@@ -41,15 +42,17 @@ function openResultPage (numResult){
 // создание категории
 function createArtistsQuizCard(id){    
     const artistsQuizCardContainer= document.createElement('div');
+    const resultButtonCard = document.createElement('button');
+    resultButtonCard.classList.add('result-button-card');
+    resultButtonCard.innerHTML='score'
     
-    const resultButtonCard = createElem('button','result-button-card', 'score');
     resultButtonCard.classList.add(`${id}`);
     
 
     const cardText = document.createElement('div');
     cardText.classList.add('text-card');
     cardText.classList.add('hide');
-    //resultButtonCard.classList.add('hide');
+    resultButtonCard.classList.add('hide');
     
     artistsQuizCardContainer.classList.add('artists-quiz-card-container', `${id}`);
     artistsQuizContainer.append(artistsQuizCardContainer);
@@ -91,6 +94,7 @@ function createArtistsQuizPage (){
         }
         isArtistQuizPage=true;
     }
+    
     hideAndShow(applicationContainer, artistsQuizContainer);
     toggleBtnSettingsHome();
 }
@@ -111,6 +115,7 @@ artistsQuizContainer.onclick = function (event) {
     let target = event.target; 
     if (target.classList.contains('artists-quiz-card')){
         openQuestion(target);
+        //callTimer();
     } else if (target.classList.contains('result-button-card')){
         let numResult =10*parseInt(target.className.replace(/[^\d]/g, ''));
         openResultPage (numResult);
