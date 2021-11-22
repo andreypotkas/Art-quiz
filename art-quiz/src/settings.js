@@ -1,4 +1,16 @@
-import { header,  questionImgContainer, btnSettings, applicationContainer, settingsContainer, main, hideAndShow, toggleBtnSettingsHome, artistsQuizContainer} from "./constants";
+import { resultPage } from "./artistsQuiz";
+import {
+  header,
+  questionImgContainer,
+  btnSettings,
+  applicationContainer,
+  settingsContainer,
+  main,
+  hideAndShow,
+  toggleBtnSettingsHome,
+  artistsQuizContainer,
+  picturesQuizContainer,
+} from "./constants";
 
 const volumeSlider = document.getElementById("volume-slider");
 volumeSlider.addEventListener(
@@ -12,22 +24,26 @@ volumeSlider.addEventListener(
   false
 );
 
- function hideAndShowPages () {
+function hideAndShowPages() {
   if (settingsContainer.classList.contains("show")) {
     hideAndShow(settingsContainer, applicationContainer);
     toggleBtnSettingsHome();
   } else if (applicationContainer.classList.contains("show")) {
     hideAndShow(applicationContainer, settingsContainer);
     toggleBtnSettingsHome();
-  } else if(artistsQuizContainer.classList.contains("show")){
+  } else if (artistsQuizContainer.classList.contains("show")) {
     hideAndShow(artistsQuizContainer, applicationContainer);
     toggleBtnSettingsHome();
-  } else if (questionImgContainer.classList.contains("show")){
+  } else if (questionImgContainer.classList.contains("show")) {
     hideAndShow(questionImgContainer, applicationContainer);
     toggleBtnSettingsHome();
+  } else if (picturesQuizContainer.classList.contains("show")) {
+    hideAndShow(picturesQuizContainer, applicationContainer);
+    toggleBtnSettingsHome();
+  } else if (resultPage.classList.contains("show")) {
+    hideAndShow(resultPage, applicationContainer);
+    toggleBtnSettingsHome();
   }
-};
+}
 
-  export {hideAndShowPages};
-
-  
+export { hideAndShowPages };

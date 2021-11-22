@@ -8,8 +8,8 @@ module.exports={
     mode: 'development',
     entry:{
         main:'./index.js',
-        settings:'./settings.js',
         category:'./category.js',
+        settings:'./settings.js',
         artistsQuiz: './artistsQuiz.js',
         questionPage: './questionPage.js',
         constants: './constants.js'
