@@ -45,7 +45,7 @@ function createQuestionPage(numCategory) {
     }
   }
 
-  imgQuestion.src = `../src/assets/image-data/full/${numCategory}full.jpg`;
+  imgQuestion.src = `./assets/image-data/full/${numCategory}full.jpg`;
   // добавить кнопку ответа, 1 правильная, 3 случайные
   randomAnswersBtns(numCategory);
 
@@ -92,7 +92,7 @@ function createModal(target, answer, color, numCategory) {
   modalContent.classList.add("modal-content");
   modalContentDescription.classList.add("modal-content-description");
   const imgQuestionModal = new Image(400, 200);
-  imgQuestionModal.src = `../src/assets/image-data/full/${numCategory}full.jpg`;
+  imgQuestionModal.src = `./assets/image-data/full/${numCategory}full.jpg`;
   imgQuestionModal.classList.add("img-question");
   modalContentDescription.innerHTML = `
   <div>${answer}</div>

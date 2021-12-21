@@ -1,4 +1,4 @@
-import images from './assets/image-data/images.js';
+import images from './assets/image-data/images';
 
 const category ={
     render: ()=>{

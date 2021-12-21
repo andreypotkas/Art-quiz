@@ -22,7 +22,7 @@ function createElem (teg, className,text){
 
 function createResultQuestionCard (numResult, appendItem){
     let resultQuestionCard = createElem('div', 'result-question-card');
-    resultQuestionCard.style.background=`url(../src/assets/image-data/img/${numResult*10}.jpg)`;
+    resultQuestionCard.style.background=`url(./assets/image-data/img/${numResult*10}.jpg)`;
     appendItem.append(resultQuestionCard);
 } 
 
@@ -62,7 +62,7 @@ function createArtistsQuizCard(id){
     artistsQuizCardContainer.append(artistsQuizCardTitle);
     
     const artistsQuizCard= document.createElement('div');
-    artistsQuizCard.style.background=`url(../src/assets/image-data/img/${(id+1)*10}.jpg)`;
+    artistsQuizCard.style.background=`url(./assets/image-data/img/${(id+1)*10}.jpg)`;
     artistsQuizCard.style.backgroundSize='cover';
     artistsQuizCard.classList.add('artists-quiz-card');
     artistsQuizCardContainer.append(artistsQuizCard);
@@ -79,7 +79,7 @@ function createPicturesQuizCard(id){
     picturesQuizCardContainer.append(picturesQuizCardTitle);
     
     const picturesQuizCard= document.createElement('div');
-    picturesQuizCard.style.background=`url(../src/assets/image-data/img/${(id+1)*10}.jpg)`;
+    picturesQuizCard.style.background=`url(./assets/image-data/img/${(id+1)*10}.jpg)`;
     picturesQuizCard.style.backgroundSize='cover';
     picturesQuizCard.classList.add('artists-quiz-card');
     picturesQuizCardContainer.append(picturesQuizCard);
