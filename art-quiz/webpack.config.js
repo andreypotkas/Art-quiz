@@ -5,10 +5,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const RemoveEmptyScriptsPlugin = require('webpack-remove-empty-scripts');
-
 const htmlFile = /^([-_\d\w]+).html$/i;
 const srcPath = path.resolve(__dirname, 'src');
-
 const devServer = (isDev) => !isDev ? {} : {
   devServer: {
     open: true,
@@ -72,11 +70,6 @@ module.exports = ({ development }) => {
     target: ['web', 'es6'],
     module: {
       rules: [
-        {
-          test: /\.[tj]s$/,
-          use: 'ts-loader',
-          exclude: /node_modules/,
-        },
         {
           test: /\.(?:ico|gif|png|jpg|jpeg|svg|webp)$/i,
           type: 'asset/resource',

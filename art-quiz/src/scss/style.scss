@@ -60,7 +60,7 @@ header{
           }
             
     }
-    .start-page{
+    .start-page, #btn-categories{
         background: none;
         color: white;
         border: white solid 2px;
@@ -206,17 +206,7 @@ header{
 }
 
 
-    .picturequiz-container{
-        background: black;
-        display: flex;
-        max-width: 1200px;
-        column-gap: 20px;
-        row-gap: 20px;
-        flex-wrap: wrap;
-        margin: 0 auto;
-        margin-top: 120px;
-    }
-  .artistsquiz-container{
+  .artistsquiz-container, .picturesquiz-container{
     background: black;
     display: flex;
     max-width: 1200px;
@@ -227,7 +217,7 @@ header{
     margin-top: 120px;
   }
 
-  .artists-quiz-card-container{
+  .artists-quiz-card-container, .pictures-quiz-card-container{
     width: 180px;
     height: 220px;
     color: white;
@@ -235,7 +225,7 @@ header{
     align-self: start;
     text-transform: uppercase;
     
-    .artists-quiz-card{
+    .artists-quiz-card, .pictures-quiz-card{
         display: flex;
         width: 180px;
         height: 180px;
@@ -246,7 +236,26 @@ header{
         text-decoration: underline;
     }
 }
+.question-pictures-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    #pictures-button-container{
+        width: 50%;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        row-gap: 30px;
+        column-gap: 30px;
+        #pictures-answer-button{
+            width: 45%;
+            height: 200px;
+            background-size: contain;
+            
 
+        }
+    }
+}
   
   @keyframes spin {
     from {transform:rotate(0deg);}
@@ -260,7 +269,7 @@ header{
     margin: 0 auto;
     
 }
-.question-img-container{
+.question-artists-container{
  display: flex;
  flex-direction: column;
 }
@@ -279,16 +288,12 @@ header{
 }
 
 .hide{
-    
     animation: 1s hideLeft forwards;
-    display: none;
-    position: absolute;
+    display: none !important;
 }
 .show{
-    display: flex;
-    position: relative;
-    animation: 1s showLeft forwards;
-    
+    display: flex !important;
+    animation: 1s showLeft forwards; 
 }
 @keyframes hideLeft {
 
@@ -320,15 +325,23 @@ header{
 .modal {
     display: none; /* Скрыто по умолчанию */
     position: fixed; /* Оставаться на месте */
-    z-index: 1; /* Сидеть на вершине */
+    z-index: 1111; /* Сидеть на вершине */
     padding-top: 100px; /* Расположение коробки */
     left: 0;
     top: 0;
     width: 100%; /* Полная ширина */
     height: 100%; /* Полная высота */
-    overflow: auto; /* Включите прокрутку, если это необходимо */
-    background-color: rgb(0,0,0); /* Цвет запасной вариант  */
     background-color: rgba(0,0,0,0.4); /*Черный с непрозрачностью */
+    .start-page{
+        background: black;
+        color: white;
+        border: white solid 2px;
+        border-radius: 5px;
+        width: 100px;
+        height: 40px;
+        text-transform: uppercase;  
+        margin-left: 50px;
+    }
   }
 
   .modal-content {
@@ -394,22 +407,25 @@ header{
   .result-page{
     background: black;
     display: flex;
-    max-width: 1200px;
+    max-width: 100%;
     column-gap: 20px;
     row-gap: 20px;
     flex-wrap: wrap;
+    justify-content: center;
+
     margin: 0 auto;
     margin-top: 120px;
 
   }
   .result-question-card{
-    width: 180px;
-    
+    width: 150px;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
     color: white;
     text-align: center;
     align-self: start;
     text-transform: uppercase;
-    height: 180px;
+    height: 150px;
     border-radius: 30px;
     background-size: cover;
   }

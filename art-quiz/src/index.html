@@ -10,11 +10,13 @@
 
 <body>
     <header id="header">
+        <button class="btn-categories hide" id="btn-categories">categories</button>
         <h1>Art-quiz</h1>
         <button class="btn-settings" id="btn-settings"></button>
     </header>
    
     <main id="main">
+        <div class="class1 2"></div>
         <section class="application-container show" id="application-container">
 
             <div class="content-container" id="content-container">
@@ -36,7 +38,7 @@
                     <div class="volume-button-mute">
                     </div>
                     <div class="volume-slider" id="volume-slider">
-                        <div class="volume-percentage"></div>
+                        <div class="volume-percentage" id="volume-percentage"></div>
                     </div>
                     <div class="volume-button">
                     </div>
@@ -50,8 +52,8 @@
                 </div>
             </div>
         </section>
-        <section class="question-img-container hide" id="question-img-container">
-            <div class="question" id="question">Кто автор этой картины?</div>
+        <section class="question-artists-container hide" id="question-artists-container">
+            <div class="question" id="question-artist">Кто автор этой картины?</div>
             <img class="img-question" src="" alt="foto" id="question-img" width="50%">
             <div class="timer-container" id="timer-container"></div>
             <div class="button-container" id="button-container">
@@ -61,6 +63,27 @@
                 <button class="answer-button" id="answer-button"></button>
             </div>
         </section>
+        <section class="question-pictures-container hide" id="question-pictures-container">
+            <div class="question" id="question-picture">Какую из этих картин написал ?</div>
+            <div class="timer-container" id="timer-container"></div>
+            <div class="pictures-button-container" id="pictures-button-container">
+                <button class="pictures-answer-button" id="pictures-answer-button"></button>
+                <button class="pictures-answer-button" id="pictures-answer-button"></button>
+                <button class="pictures-answer-button" id="pictures-answer-button"></button>
+                <button class="pictures-answer-button" id="pictures-answer-button"></button>
+            </div>class="pictures-answer-button" 
+        </section>
+        <div class="modal hide" id="modal">
+            <div class="modal-content" id="modal-content">
+                <img src="./assets/image-data/img/0.jpg" alt="modal-foto" id="img-question-modal" width="400" height="200">
+                <div class="modal-content-description" id="modal-content-description"></div>
+                <div class="congratulations-buttons hide" id="congratulations-buttons">
+                    <button class="start-page" id="home-btn">start-page</button>
+                    <button class="start-page" id="next-quiz-btn">next-quiz</button>
+                </div>
+            </div>
+            
+        </div>
     </main>
     <footer>
         <a class="link-github" href="https://github.com/andreypotkas"></a>
