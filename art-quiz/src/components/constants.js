@@ -3,16 +3,17 @@
 /* eslint-disable no-use-before-define */
 import images from '../assets/image-data/images';
 import {
-  createElem, hideAndShow, hideAndShowPages, toggleBtnCategories, hideModal, resetCounters,
+  createElem, hideAndShow, hideAndShowPages, toggleBtnCategories, resetCounters,
 } from './utils';
 import { renderQuestionPage } from './categoryPage';
 import { renderArtistsQuizPage, renderPicturesQuizPage } from './startPage';
 import {
   showTrueAnswer,
-  showWrongAnswer, renderQuestionArtistsPage, renderQuestionPicturesPage, modalCongratulations,
+  showWrongAnswer, renderQuestionArtistsPage, renderQuestionPicturesPage, finallySound,
 } from './questionPage';
 import { renderResultPage } from './resultPage';
 import Settings from './settingsPage';
+import { modal } from './modal';
 
 export const quizSettings = new Settings();
 
@@ -27,6 +28,7 @@ export function init() {
   initHandlers();
   initSounds();
   quizSettings.init();
+  modal.initElems();
 }
 
 function initSounds() {
@@ -46,11 +48,6 @@ function initElems() {
   state.elems.imgQuestion = document.getElementById('question-img');
   state.elems.questionArtist = document.getElementById('question-artist');
   state.elems.questionPicture = document.getElementById('question-picture');
-  state.elems.modal = document.getElementById('modal');
-  state.elems.modalContent = document.getElementById('modal-content');
-  state.elems.modalContentDescription = document.getElementById('modal-content-description');
-  state.elems.imgQuestionModal = document.getElementById('img-question-modal');
-  state.elems.congratulationsButtons = document.getElementById('congratulations-buttons');
   state.elems.btnCategories = document.getElementById('btn-categories');
   state.elems.answers = [];
   state.elems.namesAuthors = [];
@@ -83,7 +80,6 @@ function initHandlers() {
     }
 
     if (target.classList.contains('next-page-btn') && state.elems.questionCounter === 1) {
-      state.elems.answers = [];
       if (state.elems.typeGame === 'artistsQuiz') {
         showResultGame(state.controllers.artistsQuizContainer);
       } else if (state.elems.typeGame === 'picturesQuiz') {
@@ -108,26 +104,22 @@ function initHandlers() {
     }
 
     if (state.elems.typeGame === 'artistsQuiz' && target.id === 'home-btn') {
-      hideModal();
+      modal.hide();
       hideAndShow(state.elems.questionArtistsContainer, state.elems.applicationContainer);
-      state.elems.congratulationsButtons.classList.add('hide');
     }
 
     if (state.elems.typeGame === 'picturesQuiz' && target.id === 'home-btn') {
-      hideModal();
+      modal.hide();
       hideAndShow(state.elems.questionPicturesContainer, state.elems.applicationContainer);
-      state.elems.congratulationsButtons.classList.add('hide');
     }
 
     if (state.elems.typeGame === 'artistsQuiz' && target.id === 'next-quiz-btn') {
-      hideModal();
-      clearQuestionPage(state.elems.questionArtistsContainer, state.elems.answersButtons);
+      modal.hide();
       hideAndShow(state.elems.questionArtistsContainer, state.controllers.artistsQuizContainer);
     }
 
     if (state.elems.typeGame === 'picturesQuiz' && target.id === 'next-quiz-btn') {
-      hideModal();
-      clearQuestionPage(state.elems.questionPicturesContainer, state.elems.pictureAnswersButtons);
+      modal.hide();
       hideAndShow(state.elems.questionPicturesContainer, state.controllers.picturesQuizContainer);
     }
 
@@ -148,10 +140,6 @@ function createLayout() {
   state.controllers.resultPage = createElem({
     tag: 'div',
     classNames: ['result-page'],
-  });
-  state.controllers.nextQuestionBtn = createElem({
-    tag: 'button',
-    classNames: ['next-page-btn'],
   });
   state.controllers.artistsQuizContainer = createElem({
     tag: 'section',
@@ -183,24 +171,17 @@ function initNamesAuthors() {
   });
 }
 function showResultGame(type) {
-  hideModal();
-  modalCongratulations();
+  modal.showResultQuiz();
   renderResultOnCategoryCard(type);
   resetCounters();
+  finallySound();
 }
 function renderNextQuestion() {
-  hideModal();
+  modal.hide();
   state.elems.numCategory += 1;
   if (state.elems.typeGame === 'artistsQuiz') {
     renderQuestionArtistsPage(state.elems.numCategory);
   } else if (state.elems.typeGame === 'picturesQuiz') {
     renderQuestionPicturesPage(state.elems.numCategory);
   }
-}
-
-function clearQuestionPage(page, buttons) {
-  page.innerHTML = '';
-  buttons.forEach((e) => {
-    e.remove();
-  });
 }

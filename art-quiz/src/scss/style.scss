@@ -455,3 +455,11 @@ header{
           display: block;
       }
   }
+
+#congratulations-buttons{
+    display: flex;
+    justify-content: space-around !important;
+}
+#home-btn, #next-quiz-btn{
+    margin: 0;
+}

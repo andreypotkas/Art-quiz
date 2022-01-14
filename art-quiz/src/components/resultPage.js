@@ -33,4 +33,5 @@ export function renderResultPage(target) {
   state.elems.numResult = parseInt(state.elems.targetParentBg.replace(state.elems.regExpFindNumber, ''), 10);
   addCardsOnResultPage(state.elems.numResult);
   toggleBtnCategories();
+  state.elems.answers = [];
 }

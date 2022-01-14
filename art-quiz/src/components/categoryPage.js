@@ -1,5 +1,5 @@
 /* eslint-disable import/no-cycle */
-import { createElem, hideAndShow, toggleBtnCategories } from './utils';
+import { createElem, hideAndShow } from './utils';
 import { state } from './constants';
 import { renderQuestionPicturesPage, renderQuestionArtistsPage } from './questionPage';
 
