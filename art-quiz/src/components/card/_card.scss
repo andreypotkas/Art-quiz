@@ -1,0 +1,63 @@
+.artists-quiz-card-container,
+.pictures-quiz-card-container {
+  width: 180px;
+  height: 260px;
+  color: white;
+  text-align: center;
+  align-self: start;
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 10px;
+  position: relative;
+
+  p {
+    margin: 0;
+    font-size: 20px;
+  }
+  .artists-quiz-card-picture,
+  .pictures-quiz-card-picture {
+    display: flex;
+    width: 180px;
+    height: 180px;
+    background-size: cover;
+    border-radius: 10px;
+    font-size: 32px;
+    text-align: right;
+    text-decoration: underline;
+  }
+}
+.result-cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 500px;
+  row-gap: 10px;
+  column-gap: 10px;
+}
+.result-quiz-card-picture {
+  width: 80px;
+  height: 80px;
+  background-size: cover;
+  border-radius: 10px;
+}
+.artists-result-button-card {
+  button {
+    position: absolute;
+    top: 200px;
+    left: 15px;
+    background: black;
+    color: white;
+    border: white solid 2px;
+    border-radius: 10px;
+    width: 150px;
+    height: 40px;
+    text-transform: uppercase;
+    z-index: 1000;
+    &:hover {
+      background: rgb(223, 103, 223);
+      cursor: pointer;
+    }
+  }
+}

@@ -1,465 +1,238 @@
-body{
-    background: #000;
+@import '../app/app';
+@import '../components/settings/settings';
+@import '../components/card/card';
+@import '../components/game/game';
+@import '../components/game/games/picture/picture';
+@import '../components/game/games/artist/artist';
+@import '../components/modal/modal';
+
+body {
+  background: #000;
+  margin: 0;
+  padding: 0;
+  font-family: arial;
 }
 
-footer{
-    margin-top: 100px;
-    display: flex;
-    justify-content: space-around;
-    color: white;
-    .link-github{
-        background-image: url('../assets/img/icons/648256.png');
-        background-size: contain;
-        width: 50px;
-        height: 50px;
-    }
-    .year{
-        font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-        font-size: 22px;
-    }
-    .link-school{
-        background-image: url('../assets/img/icons/logo_rs_text.svg');
-        background-repeat: no-repeat;
-        background-size: contain;
-        width: 100px;
-        height: 50px;
-    }
-}
-
-header{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
-    h1{
-        margin:0 50px;
-        display: inline;
-        text-align: right;
-        color: white;
-        text-transform: uppercase;
-        font-family: arial;
-        height: 10%;
-        font-size: 54px;
-        
-    } 
-    .btn-settings{
-        width: 50px;
-        background:none;
-        background-image: url('../assets/img/icons/carbon_settings.png');
-        background-size: contain;
-        max-width: 50px;
-        height: 50px;
-        border: none;
-        
-       
-        &:hover{
-            animation: spin 5s linear 0s infinite;
-          }
-        &:active{
-            animation: spin 2s linear 0s infinite;
-          }
-            
-    }
-    .start-page, #btn-categories{
-        background: none;
-        color: white;
-        border: white solid 2px;
-        border-radius: 5px;
-        width: 100px;
-        height: 40px;
-        text-transform: uppercase;  
-        margin-left: 50px;
-    }
-}
-.application-container{
-    /* background-image: url('../assets/img/j-retrato-de-cardenal-rafael\ 1.png');
-    background-repeat: no-repeat;
-    background-size: cover; */
-    display: flex;
-    column-gap: 70px;
-    justify-content: center;
-    width: 100%;
-    min-width: 320px;
-    margin: 0 auto;
-    .content-container{
-        display: flex;
-        row-gap: 70px;
-        column-gap: 100px;
-        justify-content: center;
-        flex-wrap: wrap;
-        margin-top: 320px;
-    
-    .artists-quiz, .pictures-quiz{
-        flex: 0 1 50%;
-        background-image: url('../assets/img/dali-photo.jpg');
-        background-size: cover;
-        max-width: 280px;
-        height: 280px;
-        border-radius: 50px;
-        border: solid 2px white;
-        button{
-            background: none;
-            color: white;
-            border: white solid 2px;
-            border-radius: 5px;
-            width: 280px;
-            height: 40px;
-            position: relative;
-            top: -50px;
-            text-transform: uppercase;
-        }
-    }
-    .pictures-quiz{
-        background-image: url('../assets/img/dalitime.jpg');
-    }
-    }
-}
-
-.settings-container{
-    display: flex;
-    row-gap: 70px;
-    column-gap: 100px;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 100px;
-    position: absolute;
-    display:none;
-    
-        label {
-            display: block;
-            font: 1rem 'Fira Sans', sans-serif;
-        }
-        .tentacles,
-        label {
-            text-align: center;
-            margin: .4rem 0;
-            color:white;
-            text-transform: uppercase;
-            align-self: center;
-        }
-        .tentacles{
-            margin-left: 40%;
-            color: black;
-        }
-    .settings-title{
-        flex: 1 0 100%;
-        text-align: center;
-        color: white;
-        text-transform: uppercase;
-        font-family: arial;
-        font-size: 54px;
-    }  
-    
-    .settings-volume, .settings-time{
-        flex: 0 1 50%;
-        background-size: cover;
-        max-width: 280px;
-        height: 280px;
-        border-radius: 50px;
-        border: solid 2px white;
-        .volume-title, .time-title{
-            text-align: center;
-            color: white;
-            text-transform: uppercase;
-        }
-        .volume-container {
-            display: flex;
-            justify-content: center;
-            text-align: center;
-            cursor: pointer;
-            align-items: center;
-            margin: 0 auto;
-            .volume-button {
-                height: 20px;
-                width: 20px;
-                align-items: center;
-                background: url('../assets/img/icons/sound_PNG6.png');
-                background-size: contain;
-                z-index:200;
-            }
-            .volume-button-mute {
-                height: 20px;
-                width: 20px;
-                align-items: center;
-                background: url('../assets/img/icons/sound.png');
-                background-size: contain;
-                z-index:200;
-            }
-            .volume-slider {
-                margin: 0 10px;
-                width: 60%;
-                height: 10px;
-                background: white;
-                .volume-percentage {
-                    background: coral;
-                    height: 100%;
-                    width: 70%;
-                  }
-              }
-          }
-          .settings-time{
-              display: flex;
-              justify-content: center;
-              flex-direction: column;
-          }
-    }
-}
-
-
-  .artistsquiz-container, .picturesquiz-container{
-    background: black;
-    display: flex;
-    max-width: 1200px;
-    column-gap: 20px;
-    row-gap: 20px;
-    flex-wrap: wrap;
-    margin: 0 auto;
-    margin-top: 120px;
+footer {
+  position: fixed;
+  background: black;
+  bottom: 0;
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  color: white;
+  .link-github {
+    background-image: url('../assets/img/icons/648256.png');
+    background-size: contain;
+    width: 50px;
+    height: 50px;
   }
+  .year {
+    font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+    font-size: 22px;
+  }
+  .link-school {
+    background-image: url('../assets/img/icons/logo_rs_text.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 100px;
+    height: 50px;
+  }
+}
 
-  .artists-quiz-card-container, .pictures-quiz-card-container{
-    width: 180px;
-    height: 220px;
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  h1 {
+    margin: 0 50px;
+    display: inline;
+    text-align: right;
     color: white;
-    text-align: center;
-    align-self: start;
     text-transform: uppercase;
-    
-    .artists-quiz-card, .pictures-quiz-card{
-        display: flex;
-        width: 180px;
-        height: 180px;
-        background-size: cover;
-        border-radius: 10px;
-        font-size: 32px;
-        text-align: right;
-        text-decoration: underline;
+    font-family: arial;
+    height: 10%;
+    font-size: 54px;
+  }
+  .btn-settings {
+    width: 50px;
+    background: none;
+    background-image: url('../assets/img/icons/carbon_settings.png');
+    background-size: contain;
+    max-width: 50px;
+    height: 50px;
+    border: none;
+
+    &:hover {
+      animation: spin 5s linear 0s infinite;
     }
+    &:active {
+      animation: spin 2s linear 0s infinite;
+    }
+  }
+  .start-page,
+  #btn-categories {
+    background: none;
+    color: white;
+    border: white solid 2px;
+    border-radius: 5px;
+    width: 100px;
+    height: 40px;
+    text-transform: uppercase;
+  }
 }
-.question-pictures-container{
+
+.question-pictures-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  #pictures-button-container {
+    width: 50%;
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     align-items: center;
-    #pictures-button-container{
-        width: 50%;
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        row-gap: 30px;
-        column-gap: 30px;
-        #pictures-answer-button{
-            width: 45%;
-            height: 200px;
-            background-size: contain;
-            
-
-        }
+    row-gap: 30px;
+    column-gap: 30px;
+    #pictures-answer-button {
+      width: 45%;
+      height: 200px;
+      background-size: contain;
     }
-}
-  
-  @keyframes spin {
-    from {transform:rotate(0deg);}
-    to {transform:rotate(360deg);}
+  }
 }
 
-
-.img-question{
-    flex: 1 0;
-    display: block;
-    margin: 0 auto;
-    
-}
-.question-artists-container{
- display: flex;
- flex-direction: column;
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
-.answer-button{
-            background: none;
-            color: white;
-            border: white solid 2px;
-            border-radius: 5px;
-            height: 40px;
-            position: relative;
-            text-transform: uppercase;
-            max-width: 400px;
-            min-width: 120px;
-            flex: 0 1 50%;
+.img-question {
+  flex: 1 0;
+  display: block;
+  margin: 0 auto;
 }
 
-.hide{
-    animation: 1s hideLeft forwards;
-    display: none !important;
+.hide {
+  animation: 1s hideLeft forwards;
+  display: none !important;
 }
-.show{
-    display: flex !important;
-    animation: 1s showLeft forwards; 
+.show {
+  display: flex !important;
+  animation: 1s showLeft forwards;
 }
 @keyframes hideLeft {
+  from {
+    transform: none;
+  }
 
-    from {transform:none;}
-    
-    to {transform: translateX(110%);}
-    
-    } 
+  to {
+    transform: translateX(110%);
+  }
+}
 @keyframes showLeft {
+  from {
+    transform: translateX(110%);
+  }
 
-        from {transform:translateX(110%);}
-        
-        to {transform: none;}
-        
-        } 
-
-
-.button-container{
-    justify-content: center;
-    display: flex;
-    flex-wrap: wrap;
-    row-gap: 10px;
-    column-gap: 10px;
-    width: 100%;
-    max-width: 840px;
-    margin: 0 auto;
+  to {
+    transform: none;
+  }
 }
 
-.modal {
-    display: none; /* Скрыто по умолчанию */
-    position: fixed; /* Оставаться на месте */
-    z-index: 1111; /* Сидеть на вершине */
-    padding-top: 100px; /* Расположение коробки */
-    left: 0;
-    top: 0;
-    width: 100%; /* Полная ширина */
-    height: 100%; /* Полная высота */
-    background-color: rgba(0,0,0,0.4); /*Черный с непрозрачностью */
-    .start-page{
-        background: black;
-        color: white;
-        border: white solid 2px;
-        border-radius: 5px;
-        width: 100px;
-        height: 40px;
-        text-transform: uppercase;  
-        margin-left: 50px;
-    }
-  }
-
-  .modal-content {
-      text-align: center;
-    background-color: #fefefe;
-    margin: auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 50%;
-  }
-  .modal-content-description {
-    text-transform: uppercase;
-    font-style: 32px;
-    display: flex;
-    flex-direction: column;
-    row-gap: 20px;
-    text-align: center;
-    justify-content: center;
-  }
-
-  .next-page-btn{
-            background: black;
-            color: white;
-            border: white solid 2px;
-            border-radius: 5px;
-            height: 40px;
-            position: relative;
-            text-transform: uppercase;
-            width: 150px;
-            height: 50px;
-            margin: 0 auto;
-  }
-
-  .result-picture{
-      background: url('../assets/img/icons/si-glyph_champion-cup.png');
-      width: 200px;
-      height: 200px;
-      margin: 50px auto;
-  }
-.question{
-    color: white;
-    font-size: 32px;
-    text-align: center;
+.button-container {
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 10px;
+  column-gap: 10px;
+  width: 100%;
+  max-width: 840px;
+  margin: 0 auto;
 }
-  .result-button-card{
-    align-self: flex-end;
-    background: rgb(255, 163, 163);
-    opacity:0.3;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    height: 30px;
-    position: relative;
-    text-transform: uppercase;
-    width: 180px;
-    height: 50px;
-    margin: 0 auto;
-    text-decoration: none;
-    &:hover{
-        opacity: 1;
-    }
-  }
-  .result-page{
-    background: black;
-    display: flex;
-    max-width: 100%;
-    column-gap: 20px;
-    row-gap: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
 
-    margin: 0 auto;
-    margin-top: 120px;
-
-  }
-  .result-question-card{
-    width: 150px;
-    background-size: cover !important;
-    background-repeat: no-repeat !important;
-    color: white;
-    text-align: center;
-    align-self: start;
-    text-transform: uppercase;
-    height: 150px;
-    border-radius: 30px;
-    background-size: cover;
-  }
-  .timer-container{
-      width: 200px;
-      margin: 10px auto;
-      font-size: 22px;
-      color: white;
-      text-transform: uppercase;
-      text-align: center;
-      border: 2px white solid;
-      
-  }
-  .volume-on-off{
-      width: 30px;
-      height: 30px;
-      
-      
-  }
-  .volume-label{
-      display: flex;
-      flex-direction: column;
-      text-align: center;
-      color: white;
-      text-transform: uppercase;
-      span{
-          display: block;
-      }
-  }
-
-#congratulations-buttons{
-    display: flex;
-    justify-content: space-around !important;
+.result-picture {
+  background: url('../assets/img/icons/si-glyph_champion-cup.png');
+  width: 200px;
+  height: 200px;
+  margin: 50px auto;
 }
-#home-btn, #next-quiz-btn{
-    margin: 0;
+.question {
+  color: white;
+  font-size: 32px;
+  text-align: center;
+}
+.result-button-card {
+  align-self: flex-end;
+  background: rgb(255, 163, 163);
+  opacity: 0.3;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  height: 30px;
+  position: relative;
+  text-transform: uppercase;
+  width: 180px;
+  height: 50px;
+  margin: 0 auto;
+  text-decoration: none;
+  &:hover {
+    opacity: 1;
+  }
+}
+.result-page {
+  background: black;
+  display: flex;
+  max-width: 100%;
+  column-gap: 20px;
+  row-gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  margin: 0 auto;
+  margin-top: 120px;
+}
+.result-question-card {
+  width: 150px;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  color: white;
+  text-align: center;
+  align-self: start;
+  text-transform: uppercase;
+  height: 150px;
+  border-radius: 30px;
+  background-size: cover;
+}
+.timer-container {
+  width: 200px;
+  margin: 10px auto;
+  font-size: 22px;
+  color: white;
+  text-transform: uppercase;
+  text-align: center;
+  border: 2px white solid;
+}
+.volume-on-off {
+  width: 30px;
+  height: 30px;
+}
+.volume-label {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  color: white;
+  text-transform: uppercase;
+  span {
+    display: block;
+  }
+}
+
+#home-btn,
+#next-quiz-btn {
+  margin: 0;
 }

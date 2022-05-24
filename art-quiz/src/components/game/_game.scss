@@ -1,0 +1,23 @@
+.result-cards-container {
+  color: white;
+}
+.resultpage-quiz-card-picture {
+  width: 150px;
+  height: 150px;
+  background-size: cover;
+  border-radius: 10px;
+}
+.resultpage {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  align-items: center;
+}
+.resultpage-cards-container {
+  width: 900px;
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 20px;
+  column-gap: 20px;
+}

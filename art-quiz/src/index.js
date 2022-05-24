@@ -1,4 +1,6 @@
 import './scss/style.scss';
-import { init } from './components/constants';
+import App from './app/app';
 
-init();
+const quiz = new App();
+quiz.initRender();
+export default quiz;

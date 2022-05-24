@@ -1,0 +1,82 @@
+.modal {
+  display: flex;
+  position: fixed;
+  z-index: 1111;
+  padding-top: 10px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  .start-page {
+    background: black;
+    color: white;
+    border: white solid 2px;
+    border-radius: 5px;
+    width: 100px;
+    height: 40px;
+    text-transform: uppercase;
+  }
+  .result {
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+  }
+  .modal-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #fefefe;
+    margin: 0 auto;
+    padding: 20px;
+    border: 2px solid #888;
+    border-radius: 10px;
+    height: 450px;
+
+    figure {
+      flex-grow: 0;
+      flex-shrink: 1;
+      height: 300px;
+      img {
+        object-fit: cover;
+        height: 300px;
+      }
+    }
+    h2 {
+      margin: 0;
+      text-transform: uppercase;
+    }
+    .modal-content-description {
+      flex-grow: 0;
+      text-transform: uppercase;
+      font-style: 32px;
+      display: flex;
+      flex-direction: column;
+      row-gap: 10px;
+      text-align: center;
+      justify-content: center;
+      width: 300px;
+      p {
+        margin: 0;
+      }
+    }
+
+    .next-page-btn {
+      background: black;
+      color: white;
+      border: white solid 2px;
+      border-radius: 5px;
+      height: 40px;
+      position: relative;
+      text-transform: uppercase;
+      width: 150px;
+      height: 50px;
+    }
+  }
+}
+
+.congratulations-buttons {
+  display: flex;
+  justify-content: space-around;
+}
