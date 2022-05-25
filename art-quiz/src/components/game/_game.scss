@@ -21,3 +21,14 @@
   row-gap: 20px;
   column-gap: 20px;
 }
+.result-page-btn {
+  @include button();
+  color: white;
+  border: 2px solid white;
+}
+.result-page-title {
+  color: white;
+}
+.result-page-description {
+  color: white;
+}

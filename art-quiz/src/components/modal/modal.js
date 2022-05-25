@@ -24,6 +24,7 @@ export default class Modal {
     modal.classList.add('modal');
     modal.innerHTML = `
         <div class="modal-content result">
+        <h2 class="result-title">Your answers</h2>
         <div class="result-cards-container">
 
         </div>
@@ -32,8 +33,8 @@ export default class Modal {
                 <p>Incorrect answers: ${incorrect}</p>
             </div>
             <div class="congratulations-buttons">
-                <button class="start-page modal-start-page-btn" >start page</button>
-                <button class="start-page modal-next-quiz-btn">next quiz</button>
+                <button class="modal-start-page-btn" >start page</button>
+                <button class="modal-next-quiz-btn">next quiz</button>
             </div>
         </div>
     `;

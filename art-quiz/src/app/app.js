@@ -7,33 +7,25 @@ export default class App {
     this.container = document.getElementById('container');
     this.artistsQuiz = new Artist('artists', this.container, 0);
     this.picturesQuiz = new Picture('pictures', this.container, 12);
-    this.settungs = new Settings();
-    this.state = {
-      artists: {},
-      pictures: {},
-      settungs: {},
-      header: {
-        startPageBtn: document.getElementById('btn-start-page'),
-        categoriesBtn: document.getElementById('btn-categories'),
-        settings: document.getElementById('btn-settings'),
-      },
+    this.settings = new Settings();
+    this.header = {
+      startPageBtn: document.getElementById('btn-start-page'),
+      categoriesBtn: document.getElementById('btn-categories'),
+      settingsBtn: document.getElementById('btn-settings'),
     };
+    this.initRender();
     this.initBtns();
   }
 
   initRender() {
     this.container.innerHTML = `
-        <div class="content-container">
-          <div>
-              <button id="artists-quiz">artists-quiz</button>
-              <div class="artists-quiz"></div>
-          </div>
-          <div>
-            <button id="pictures-quiz">pictures-quiz</button>
-            <div class="pictures-quiz"></div>
-          </div>
+        <div class="games-container">
+          <button id="artists-quiz">artists quiz</button>
+          <button id="pictures-quiz">pictures quiz</button>
         </div>
+        
     `;
+    this.container.style.alignItems = 'flex-end';
     this.initHandlers();
   }
 
@@ -49,13 +41,13 @@ export default class App {
   }
 
   showStartPageBtn() {
-    this.state.header.startPageBtn.classList.remove('hide');
+    this.header.startPageBtn.classList.remove('hide');
   }
 
   initBtns() {
-    this.state.header.startPageBtn.addEventListener('click', () => {
+    this.header.startPageBtn.addEventListener('click', () => {
       this.initRender();
-      this.state.header.startPageBtn.classList.add('hide');
+      this.header.startPageBtn.classList.add('hide');
     });
   }
 }

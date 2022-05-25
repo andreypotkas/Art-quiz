@@ -1,0 +1,25 @@
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+@mixin button {
+  background: none;
+  color: white;
+  border: white solid 2px;
+  border-radius: 5px;
+  height: 40px;
+  text-transform: uppercase;
+  &:hover {
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.171);
+  }
+}
+
+@mixin image($url) {
+  background: url($url);
+  background-size: cover;
+  background-repeat: no-repeat;
+}

@@ -5,39 +5,41 @@ import Modal from '../modal/modal';
 export default class Game {
   constructor(name, container, start) {
     this.name = name;
-    this.correctAnswerCount = 0;
-    this.incorrectAnswerCount = 0;
-    this.container = container;
     this.start = start;
+    this.container = container;
     this.card = new Card(`${this.name}`);
     this.modal = new Modal();
+    this.state = {};
+    this.correctAnswerCount = 0;
+    this.incorrectAnswerCount = 0;
     this.currentId = 0;
     this.correctness = 'Correct';
     this.currentCategory = 0;
     this.currentCount = 0;
-    this.categoryAnswers = {};
     this.colorAnswer = '';
-    this.isLastQuestion = false;
+    this.trueItem = '';
     this.audio = {
       correct: new Audio('../../../assets/true.mp3'),
       incorrect: new Audio('../../../assets/false.mp3'),
+      result: new Audio('../../../assets/game-won.mp3'),
     };
   }
 
   renderCategoryPage() {
     this.container.innerHTML = '';
+    this.container.style.alignItems = 'center';
     const el = document.createElement('section');
     el.classList.add(`${this.name}quiz-container`);
     for (let i = this.start; i < 12 + this.start; i += 1) {
       let card;
-      const categoryKeys = Object.keys(this.categoryAnswers);
+      const categoryKeys = Object.keys(this.state);
       if (categoryKeys.includes(String(i))) {
         let counter = 0;
-        this.categoryAnswers[i].forEach((item) => {
+        this.state[i].forEach((item) => {
           if (item) counter += 1;
         });
         card = this.card.renderCard(i, counter);
-        card.style.backgroundColor = 'rgb(223, 103, 223)';
+        card.style.backgroundColor = 'rgb(255, 163, 163)';
       } else {
         card = this.card.renderCard(i, false);
       }
@@ -47,7 +49,6 @@ export default class Game {
 
     this.container.append(el);
     if (document.querySelector('.result-page-btn')) {
-      console.log('1');
       document.querySelector('.result-page-btn').onclick = (event) => {
         this.renderResultPage();
         event.stopImmediatePropagation();
@@ -60,7 +61,7 @@ export default class Game {
     this.incorrectAnswerCount = 0;
     this.currentCount = 0;
     this.currentCategory = id;
-    this.categoryAnswers[id] = [];
+    this.state[id] = [];
     this.currentId = id * 10;
     this.renderQuestion(this.currentId);
   }
@@ -76,9 +77,7 @@ export default class Game {
   }
 
   answer(item, image) {
-    item.textContent === image.author
-      ? this.correctAnswer()
-      : this.incorrectAnswer();
+    item === this.trueItem ? this.correctAnswer() : this.incorrectAnswer();
     item.style.backgroundColor = this.colorAnswer;
     this.currentId += 1;
     this.currentCount += 1;
@@ -89,8 +88,9 @@ export default class Game {
           this.incorrectAnswerCount
         )
       );
-      this.modal.renderResultCards(this.categoryAnswers[this.currentCategory]);
+      this.modal.renderResultCards(this.state[this.currentCategory]);
       this.initResultBtns();
+      this.audio.result.play();
     } else {
       this.container.append(this.modal.callModal(image, this.correctness));
       const nextPageBtn = document.querySelector('.next-page-btn');
@@ -104,7 +104,7 @@ export default class Game {
     this.colorAnswer = 'green';
     this.correctness = 'Correct';
     this.audio.correct.play();
-    this.categoryAnswers[this.currentCategory].push(true);
+    this.state[this.currentCategory].push(true);
   }
 
   incorrectAnswer() {
@@ -112,13 +112,20 @@ export default class Game {
     this.colorAnswer = 'red';
     this.correctness = 'Incorrect';
     this.audio.incorrect.play();
-    this.categoryAnswers[this.currentCategory].push(false);
+    this.state[this.currentCategory].push(false);
   }
 
   initResultBtns() {
     document.querySelector('.modal-start-page-btn').onclick = () =>
       quiz.initRender();
     document.querySelector('.modal-next-quiz-btn').onclick = () =>
+      this.renderCategoryPage();
+  }
+
+  initResultPageBtns() {
+    document.querySelector('.result-start-quiz').onclick = () =>
+      quiz.initRender();
+    document.querySelector('.result-next-quiz').onclick = () =>
       this.renderCategoryPage();
   }
 
@@ -132,19 +139,19 @@ export default class Game {
         <div class="resultpage-cards-container">
 
         </div>
-            <div class="modal-content-description">
+            <div class="result-page-description">
                 <p>Correct answers: ${this.correctAnswerCount}</p>
                 <p>Incorrect answers: ${this.incorrectAnswerCount}</p>
             </div>
             <div class="congratulations-buttons">
-                <button class="start-page modal-start-page-btn" >start page</button>
-                <button class="start-page modal-next-quiz-btn">next quiz</button>
+                <button class="result-page-btn result-start-quiz">start page</button>
+                <button class="result-page-btn result-next-quiz">next quiz</button>
             </div>
     `;
     this.container.innerHTML = '';
-    console.log(this.container);
     this.container.append(el);
-    this.renderResultCards(this.categoryAnswers[this.currentCategory]);
+    this.renderResultCards(this.state[this.currentCategory]);
+    this.initResultPageBtns();
   }
 
   renderResultCards(answers) {

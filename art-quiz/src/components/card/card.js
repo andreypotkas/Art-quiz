@@ -9,7 +9,7 @@ export default class Card {
     card.append(this.renderCardTitle(id));
     card.append(this.renderCardPicture(id));
     card.dataset.id = id;
-    if (count) {
+    if (count || count === 0) {
       card.prepend(this.renderCardButton(count));
     }
     return card;
