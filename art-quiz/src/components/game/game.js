@@ -101,7 +101,7 @@ export default class Game {
     item.style.backgroundColor = this.colorAnswer;
     this.currentId += 1;
     this.currentCount += 1;
-    if (this.currentCount === 3) {
+    if (this.currentCount === 10) {
       this.container.append(
         this.modal.callResultModal(
           this.correctAnswerCount,
