@@ -3,12 +3,13 @@ import Card from '../card/card';
 import Modal from '../modal/modal';
 
 export default class Game {
-  constructor(name, container, start) {
+  constructor(name, container, start, settings) {
     this.name = name;
     this.start = start;
     this.container = container;
     this.card = new Card(`${this.name}`);
     this.modal = new Modal();
+    this.settings = settings;
     this.state = {};
     this.correctAnswerCount = 0;
     this.incorrectAnswerCount = 0;
@@ -18,6 +19,8 @@ export default class Game {
     this.currentCount = 0;
     this.colorAnswer = '';
     this.trueItem = '';
+    this.startTimerValue = '';
+    this.timer = null;
     this.audio = {
       correct: new Audio('../../../assets/true.mp3'),
       incorrect: new Audio('../../../assets/false.mp3'),
@@ -66,6 +69,20 @@ export default class Game {
     this.renderQuestion(this.currentId);
   }
 
+  startTimer() {
+    this.startTimerValue = this.settings.timerValue;
+    document.getElementById('timer-container').innerHTML = this.startTimerValue;
+    clearInterval(this.timer);
+    this.timer = setInterval(() => {
+      this.startTimerValue -= 1;
+      document.getElementById('timer-container').innerHTML =
+        this.startTimerValue;
+      if (this.startTimerValue === 0) {
+        clearInterval(this.timer);
+      }
+    }, 1000);
+  }
+
   getRandomInt(min, max) {
     const minValue = Math.ceil(min);
     const maxValue = Math.floor(max);
@@ -77,11 +94,14 @@ export default class Game {
   }
 
   answer(item, image) {
-    item === this.trueItem ? this.correctAnswer() : this.incorrectAnswer();
+    clearInterval(this.timer);
+    item === this.trueItem && this.startTimerValue !== 0
+      ? this.correctAnswer()
+      : this.incorrectAnswer(this.startTimerValue);
     item.style.backgroundColor = this.colorAnswer;
     this.currentId += 1;
     this.currentCount += 1;
-    if (this.currentCount === 2) {
+    if (this.currentCount === 3) {
       this.container.append(
         this.modal.callResultModal(
           this.correctAnswerCount,
@@ -90,12 +110,17 @@ export default class Game {
       );
       this.modal.renderResultCards(this.state[this.currentCategory]);
       this.initResultBtns();
-      this.audio.result.play();
+      if (this.settings.volume) {
+        this.audio.result.volume = this.settings.volumeValue / 100;
+        this.audio.result.play();
+      }
     } else {
       this.container.append(this.modal.callModal(image, this.correctness));
       const nextPageBtn = document.querySelector('.next-page-btn');
       nextPageBtn.style.backgroundColor = this.colorAnswer;
-      nextPageBtn.onclick = () => this.renderQuestion(this.currentId);
+      nextPageBtn.onclick = () => {
+        this.renderQuestion(this.currentId);
+      };
     }
   }
 
@@ -103,15 +128,27 @@ export default class Game {
     this.correctAnswerCount += 1;
     this.colorAnswer = 'green';
     this.correctness = 'Correct';
-    this.audio.correct.play();
+    if (this.settings.volume) {
+      this.audio.correct.volume = this.settings.volumeValue / 100;
+      this.audio.correct.play();
+    }
     this.state[this.currentCategory].push(true);
   }
 
-  incorrectAnswer() {
+  incorrectAnswer(timer) {
     this.incorrectAnswerCount += 1;
     this.colorAnswer = 'red';
-    this.correctness = 'Incorrect';
-    this.audio.incorrect.play();
+    if (timer === 0) {
+      this.correctness = 'Time is up';
+    } else {
+      this.correctness = 'Incorrect';
+    }
+
+    if (this.settings.volume) {
+      this.audio.incorrect.volume = this.settings.volumeValue / 100;
+      this.audio.incorrect.play();
+    }
+
     this.state[this.currentCategory].push(false);
   }
 
@@ -123,10 +160,12 @@ export default class Game {
   }
 
   initResultPageBtns() {
-    document.querySelector('.result-start-quiz').onclick = () =>
+    document.querySelector('.result-start-quiz').onclick = () => {
       quiz.initRender();
-    document.querySelector('.result-next-quiz').onclick = () =>
+    };
+    document.querySelector('.result-next-quiz').onclick = () => {
       this.renderCategoryPage();
+    };
   }
 
   renderResultPage() {
@@ -167,6 +206,4 @@ export default class Game {
       container.append(el);
     }
   }
-
-  saveResult() {}
 }

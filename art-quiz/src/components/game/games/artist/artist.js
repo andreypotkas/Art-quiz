@@ -10,7 +10,7 @@ export default class Artist extends Game {
             <div class="img-question">
             <img src="../../../assets/image-data/full/${id}full.jpg" alt="foto">
             </div>
-            <div class="timer-container" id="timer-container"></div>
+            <div class="timer-container-question" id="timer-container"></div>
             <div class="button-container" id="button-container">
               <div>
                 <button class="answer-button" id="answer-button"></button>
@@ -24,6 +24,12 @@ export default class Artist extends Game {
         </section>
     `;
     this.renderAnswers(id);
+    if (this.settings.timer) {
+      this.startTimer();
+    } else {
+      document.querySelector('.timer-container-question').style.display =
+        'none';
+    }
   }
 
   renderAnswers(id) {
