@@ -5,9 +5,14 @@ import Picture from '../components/game/games/picture/picture';
 export default class App {
   constructor() {
     this.container = document.getElementById('container');
-    this.artistsQuiz = new Artist('artists', this.container, 0);
-    this.picturesQuiz = new Picture('pictures', this.container, 12);
-    this.settings = new Settings();
+    this.settings = new Settings(this.container);
+    this.artistsQuiz = new Artist('artists', this.container, 0, this.settings);
+    this.picturesQuiz = new Picture(
+      'pictures',
+      this.container,
+      12,
+      this.settings
+    );
     this.header = {
       startPageBtn: document.getElementById('btn-start-page'),
       categoriesBtn: document.getElementById('btn-categories'),
@@ -48,6 +53,10 @@ export default class App {
     this.header.startPageBtn.addEventListener('click', () => {
       this.initRender();
       this.header.startPageBtn.classList.add('hide');
+    });
+    this.header.settingsBtn.addEventListener('click', () => {
+      this.showStartPageBtn();
+      this.settings.renderSettingsPage();
     });
   }
 }

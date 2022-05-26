@@ -1,59 +1,36 @@
+@import '../../scss/mixin';
 .settings-container {
-  display: flex;
-  row-gap: 70px;
-  column-gap: 100px;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-top: 100px;
-  position: absolute;
-  display: none;
+  @include flex-center();
+  padding: 20px;
+  row-gap: 20px;
+  column-gap: 20px;
+  border-radius: 10px;
 
-  label {
-    display: block;
-    font: 1rem 'Fira Sans', sans-serif;
-  }
-  .tentacles,
-  label {
-    text-align: center;
-    margin: 0.4rem 0;
-    color: white;
-    text-transform: uppercase;
-    align-self: center;
-  }
-  .tentacles {
-    margin-left: 40%;
-    color: black;
-  }
   .settings-title {
     flex: 1 0 100%;
+    margin: 0;
     text-align: center;
     color: white;
     text-transform: uppercase;
     font-family: arial;
-    font-size: 54px;
+    font-size: 32px;
   }
-
+  .config-container {
+    @include flex-center();
+    flex-wrap: nowrap;
+    column-gap: 20px;
+  }
   .settings-volume,
   .settings-time {
     flex: 0 1 50%;
     background-size: cover;
-    max-width: 280px;
-    height: 280px;
-    border-radius: 50px;
-    border: solid 2px white;
-    .volume-title,
-    .time-title {
-      text-align: center;
-      color: white;
-      text-transform: uppercase;
-    }
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+    border: solid 2px #ffffff;
     .volume-container {
-      display: flex;
-      justify-content: center;
-      text-align: center;
-      cursor: pointer;
-      align-items: center;
-      margin: 0 auto;
+      @include flex-center();
+      column-gap: 20px;
       .volume-button {
         height: 20px;
         width: 20px;
@@ -62,30 +39,83 @@
         background-size: contain;
         z-index: 200;
       }
-      .volume-button-mute {
-        height: 20px;
-        width: 20px;
+      label {
+        color: white;
+        text-transform: uppercase;
+        font-size: 22px;
+      }
+      input {
+        width: 30px;
+        height: 30px;
+      }
+    }
+    #volumeValue,
+    #timerValue {
+      width: 100px;
+    }
+
+    #timerValue {
+      height: 30px;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+    .timer-container {
+      @include flex-center();
+      column-gap: 20px;
+      .timer-button {
+        height: 30px;
+        width: 30px;
         align-items: center;
-        background: url('../assets/img/icons/sound.png');
-        background-size: contain;
+        background: url('../assets/img/icons/timer-off.png');
+        background-size: cover;
+        background-repeat: no-repeat;
         z-index: 200;
       }
-      .volume-slider {
-        margin: 0 10px;
-        width: 60%;
-        height: 10px;
-        background: white;
-        .volume-percentage {
-          background: coral;
-          height: 100%;
-          width: 70%;
-        }
+      label {
+        color: white;
+        text-transform: uppercase;
+        font-size: 22px;
+      }
+      input {
+        width: 30px;
+        height: 30px;
       }
     }
-    .settings-time {
-      display: flex;
-      justify-content: center;
-      flex-direction: column;
+    label {
+      color: white;
+      text-transform: uppercase;
+      font-size: 22px;
     }
+    .volume-title,
+    .time-title {
+      text-align: center;
+      color: white;
+      text-transform: uppercase;
+    }
+
+    .volume-button-mute {
+      height: 20px;
+      width: 20px;
+      align-items: center;
+      background: url('../assets/img/icons/sound.png');
+      background-size: contain;
+      z-index: 200;
+    }
+    .volume-slider {
+      margin: 0 10px;
+      width: 60%;
+      height: 10px;
+      background: white;
+      .volume-percentage {
+        background: coral;
+        height: 100%;
+        width: 70%;
+      }
+    }
+  }
+  .tentacles,
+  .tentacles {
+    margin-left: 40%;
+    color: black;
   }
 }
